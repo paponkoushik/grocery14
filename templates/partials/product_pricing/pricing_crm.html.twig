@@ -64,16 +64,21 @@
 {% endfor %}
 
 {# Render products in the defined serial order #}
-{% set package_key = 0 %}
-{% for package in packages %}
+{% set iterationCount = 1 %}
+{# {{dd(iterationCount)}} #}
+
+{% for package_key, package in packages %}
     {% if grouped_products[package.key] is defined %}
         {% for product in grouped_products[package.key] %}
             {% include 'partials/product_pricing/plan_crm.html.twig' with {
                 product: product,
                 package: package.name,
-                packageKey: package_key
+                packageKey: package_key,
+                iterationCount: iterationCount
             } %}
-            {% set package_key = package_key + 1 %}
+
+            {% set iterationCount = iterationCount + 1 %}
+            
         {% endfor %}
     {% endif %}
 {% endfor %}
