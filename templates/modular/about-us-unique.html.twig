@@ -1,0 +1,61 @@
+{% extends 'partials/variables.html.twig' %}
+
+{% set module = page.header.contents %}
+{% set content = page.header.about_us_content %}
+
+{% block render_block %}
+    <div class="about_us_unique_wrapper slide-up">
+        <div class="container">
+            <div class="about_us_unique_parent">
+                <div class="about_us_unique_content">
+                    {% set content_length = content|length %}
+                    {% for key, item in content %}
+                        {% set image = page.media[item.image] %}
+                        {% set icon = page.media[item.icon] %}
+
+                        {# Check if it's the first `count_content` (first 2 items) #}
+                        {% if key == 0 or key == 1 %}
+                            {% if key == 0 %}
+                                <div class="count_content first-child">  <!-- Start first count_content -->
+                            {% endif %}
+                            <div class="count_row">
+                                <div class="image">
+                                    <img src="{{ image.url }}" alt="" class="img-desktop">
+                                    <img src="{{ icon.url }}" alt="" class="img-mobile">
+                                </div>
+                                <div class="count">
+                                    <h4 class="count_title">{{ item.title.translatable|raw }}</h4>
+                                    <p class="count_details">
+                                        {{ item.brief.translatable|raw }}
+                                    </p>
+                                </div>
+                            </div>
+
+                            {% if key == 1 %}
+                                </div>  <!-- End first count_content -->
+                            {% endif %}
+                        {% endif %}
+
+                        {# Check if it's the second `count_content` (third item) #}
+                        {% if key == 2 %}
+                            <div class="count_content last-child"> <!-- Start second count_content -->
+                                <div class="count_row">
+                                    <div class="image">
+                                        <img src="{{ image.url }}" alt="" class="img-desktop">
+                                        <img src="{{ icon.url }}" alt="" class="img-mobile">
+                                    </div>
+                                    <div class="count">
+                                        <h4 class="count_title">{{ item.title.translatable|raw }}</h4>
+                                        <p class="count_details">
+                                            {{ item.brief.translatable|raw }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div> <!-- End second count_content -->
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

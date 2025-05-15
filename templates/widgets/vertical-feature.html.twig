@@ -1,0 +1,26 @@
+{% set icon = page.media[feature_block.icon] %}
+{% set image = page.media[feature_block.image] %}
+
+<div class="feature feature-vertical {{ module.classes|replace({',' : ' '}) }}">
+    {% if image != null %}
+        <div class="feature-image">
+            <img src="{{ image.url }}" alt="{{ image.description.translatable }}">
+        </div>
+    {% endif %}
+    <div class="feature-wrapper">
+        {% if icon != null %}
+            <div class="icon-container {{ module.icon_pattern }}">
+                <img class="icon" src="{{ icon.url }}"/>
+            </div>
+        {% endif %}
+        <div class="feature-content">
+            {% if feature_block.title.translatable != '' %}
+                <h4 class="feature-title">{{ feature_block.title.translatable }}</h4>
+            {% endif %}
+            {% if feature_block.description.translatable != '' %}
+                <p>{{ feature_block.description.translatable }}</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="count">{{ feature_block.count.translatable }}</div>
+</div>

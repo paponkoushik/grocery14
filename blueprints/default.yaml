@@ -1,0 +1,63 @@
+title: Dynamic Content
+extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          fields:
+
+            footer_section:
+              ordering@: 3
+              type: section
+              title: Footer Section
+              underline: true
+              fields:
+                header.footer_content.footer_pricing.translatable:
+                  type: text
+                  label: Footer Pricing
+                  classess: 'translatable'
+                header.footer_content.footer_pricing_url:
+                  type: text
+                  label: Footer Pricing Url
+                header.footer_content.footer_feature.translatable:
+                  type: text
+                  label: Footer Feature
+                  classess: 'translatable'
+                header.footer_content.footer_feature_url:
+                  type: text
+                  label: Footer Feature Url
+                header.footer_content.footer_process.translatable:
+                  type: text
+                  label: Footer Process
+                  classess: 'translatable'
+                header.footer_content.footer_process_url:
+                  type: text
+                  label: Footer Process Url
+
+            no_hero_section:
+              ordering@: 4
+              type: section
+              title: No Hero Section
+              underline: true
+              fields:
+                header.no_hero_content._title.translatable:
+                  type: text
+                  label: Title
+                  classess: 'translatable'
+                header.no_hero_content.sub_title.translatable:
+                  type: text
+                  label: Sub Title
+                  classess: 'translatable'
+                header.no_hero_content.button_text.translatable:
+                  type: text
+                  label: Button text
+                  classess: 'translatable'
+                header.no_hero_content.button_url:
+                  type: text
+                  label: Button Url
+                header.no_hero_content.image:
+                  type: pagemediaselect
+                  label: Hero image
+                  preview_images: true

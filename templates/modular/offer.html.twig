@@ -1,0 +1,43 @@
+{% extends 'partials/variables.html.twig' %}
+
+{% set module = page.header.offer %}
+{% block render_block %}
+    {% set img_right = page.media[page.header.offer.offer_img_right].url ?? '' %}
+
+    <div class="offer">
+        <div class="container">
+            <div class="offer-text">
+
+                {% if img_right != '' %}
+                    <div class="offer-image">
+                        <img class="" src="{{ img_right }}" alt="icon"/>
+                    </div>
+                {% endif %}
+
+                <div class="offer-content">
+                    <h1 class="offer-title">
+                        {{ module.h1.translatable|striptags('<span>')|raw }}
+                    </h1>
+
+                    <p class="">{{ module.text.translatable }}</p>
+
+                    {% for button in module.buttons %}
+                        <a class="button " href="{{ button.link }}">
+
+                            <span>{{ button.text.translatable }}</span>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46"
+                                 fill="none">
+                                <rect width="46" height="46" rx="4" fill="white"/>
+                                <path d="M30.5443 17.0001C30.5443 16.5999 30.2199 16.2755 29.8198 16.2755L23.2991 16.2755C22.899 16.2755 22.5746 16.5999 22.5746 17.0001C22.5746 17.4002 22.899 17.7246 23.2991 17.7246L29.0952 17.7246L29.0952 23.5207C29.0952 23.9209 29.4196 24.2452 29.8198 24.2452C30.2199 24.2452 30.5443 23.9209 30.5443 23.5207L30.5443 17.0001ZM17.0123 30.8321L30.3321 17.5124L29.3075 16.4877L15.9877 29.8075L17.0123 30.8321Z"
+                                      fill="black"/>
+                                <path d="M31.4341 16.9483C31.4341 16.5482 31.1097 16.2238 30.7096 16.2238L24.1889 16.2238C23.7888 16.2238 23.4644 16.5482 23.4644 16.9483C23.4644 17.3484 23.7888 17.6728 24.1889 17.6728L29.9851 17.6728L29.9851 23.469C29.9851 23.8691 30.3095 24.1935 30.7096 24.1935C31.1097 24.1935 31.4341 23.8691 31.4341 23.469L31.4341 16.9483ZM17.9021 30.7804L31.2219 17.4606L30.1973 16.436L16.8775 29.7558L17.9021 30.7804Z"
+                                      fill="black"/>
+                            </svg>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

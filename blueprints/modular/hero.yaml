@@ -1,0 +1,91 @@
+title: Hero
+extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+
+          fields:
+            content:
+              unset@: true
+            header.media_order:
+                ordering@: 99
+            hero_section:
+              type: section
+              title: Hero Section
+              underline: true
+              fields:
+                header.hero.subtitle.translatable:
+                  type: text
+                  label: Hero Subtitle
+                  classes: 'translatable'
+                header.hero.title.translatable:
+                  type: text
+                  label: Hero Title
+                  classes: 'translatable'
+                header.hero.text.translatable:
+                  type: textarea
+                  label: Hero Text
+                  classes: 'translatable'
+                header.hero.image:
+                    type: pagemediaselect
+                    label: Hero image
+                    preview_images: true
+                header.hero.slider:
+                  type: list
+                  label: Hero Slider
+                  style: vertical
+                  fields:
+                    .image:
+                      type: pagemediaselect
+                      label: Slider image
+                      preview_images: true
+                    .title.translatable:
+                      type: text
+                      label: Title
+                      classes: 'translatable'
+                    .desc.translatable:
+                      type: textarea
+                      label: Desc
+                      classes: 'translatable'
+                header.hero.reviewers_thumbs:
+                  type: pagemediaselect
+                  label: Reviewers Thumbnails
+                  preview_images: true
+                header.hero.reviewers_count.translatable:
+                  type: textarea
+                  label: Reviewers Count
+                  classes: 'translatable'
+                header.hero.count_desc.translatable:
+                  type: text
+                  label: Count Description
+                  classes: 'translatable'
+                header.hero.bottom_title.translatable:
+                  type: text
+                  label: Bottom Title
+                  classes: 'translatable'
+                header.hero.bottom_title_2.translatable:
+                  type: text
+                  label: Bottom Title Two
+                  classes: 'translatable'
+                header.hero.bottom_desc.translatable:
+                  type: text
+                  label: Bottom Description
+                  classes: 'translatable'
+                header.hero.buttons:
+                  type: list
+                  label: Hero Buttons
+                  style: vertical
+                  fields:
+                    .text.translatable:
+                      type: text
+                      label: Button Text
+                      classes: 'translatable'
+                    .link:
+                      type: text
+                      label: Button Link
+                    .btn_class:
+                      type: text
+                      label: Button Class

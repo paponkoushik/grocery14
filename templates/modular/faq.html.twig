@@ -1,0 +1,144 @@
+{% extends 'partials/variables.html.twig' %}
+
+{% set module = page.header.module %}
+{% set bg = page.media[module.image].url ?? '' %}
+
+{% block render_block %}
+
+    <div class="faqs">
+        <div class="container" style="{% if(bg) %}background-image: url('{{ bg }}'){% endif %}">
+            <div class="faqs-container">
+                <div class="faqs-left">
+                    <div class="faqs-header-section">
+                        {% if module.sub_title %}
+                            <p class="sub-title">{{ module.sub_title.translatable }}</p>
+                        {% endif %}
+                        {% if module.title %}
+                            <h3 class="block-title">{{ module.title.translatable|raw }}</h3>
+                        {% endif %}
+
+                        {% if page.content %}
+                            <div class="page-content">
+                                {{ page.content | raw }}
+                            </div>
+                        {% endif %}
+                        {% if module.button %}
+                            <div class="faqs-started-btn">
+                                <a class="button" href="{{ module.button_link }}">{{ module.button.translatable }}
+                                    <img class="faqs-started-btn-icon"
+                                         src="{{ url('theme://images/faq_button_icon.svg') }}" alt="button icon">
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="faqs-items">
+                    {% for key, faq_item in page.header.faq_blocks %}
+                        {% set img = page.media[faq_item.image] %}
+                        {% if faq_item.description != '' and faq_item.title != '' %}
+                            <div class="faq-accordion-item" id="item-{{ key }}">
+                                <div class="faq-accordion-header" data-target="#faq-accordion-item-{{ key }}">
+                                    <button type="button"
+                                            class="faq-accordion-btn">{{ faq_item.title.translatable }}</button>
+                                    <img src="{{ url('theme://images/faq_arrow_up.svg') }}" alt=""
+                                         class="faq-accordion-up-btn d-none">
+                                    <img src="{{ url('theme://images/faq_arrow_down.svg') }}" alt=""
+                                         class="faq-accordion-down-btn">
+                                </div>
+                                <div class="faq-accordion-body d-none" id="faq-accordion-item-{{ key }}">
+                                    <p>{{ faq_item.description.translatable }}</p>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // document.addEventListener("DOMContentLoaded", function () {
+        //
+        //     //FAQ accordion
+        //     const accordionButtons = document.querySelectorAll(".faq-accordion-header");
+        //
+        //     accordionButtons.forEach((button) => {
+        //         button.addEventListener("click", function () {
+        //             const targetId = button.getAttribute("data-target");
+        //             const body = document.querySelector(targetId);
+        //             const parentItem = button.closest(".faq-accordion-item");
+        //             const upIcon = parentItem.querySelector(".faq-accordion-up-btn");
+        //             const downIcon = parentItem.querySelector(".faq-accordion-down-btn");
+        //
+        //             const isOpen = !body.classList.contains("d-none");
+        //
+        //             if (isOpen) {
+        //                 setTimeout(() => {
+        //                     body.style.height = 0 + "px";
+        //                 }, 10);
+        //
+        //                 setTimeout(() => {
+        //                     body.classList.add("d-none");
+        //                 }, 15);
+        //
+        //                 upIcon.classList.add("d-none");
+        //                 downIcon.classList.remove("d-none");
+        //             } else {
+        //                 setTimeout(() => {
+        //                     body.style.height = 100 + "%";
+        //                 }, 10);
+        //
+        //                 setTimeout(() => {
+        //                     body.classList.remove("d-none");
+        //                 }, 15);
+        //
+        //                 upIcon.classList.remove("d-none");
+        //                 downIcon.classList.add("d-none");
+        //             }
+        //         });
+        //     });
+        // });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const accordionButtons = document.querySelectorAll(".faq-accordion-header");
+
+            accordionButtons.forEach((button, index) => {
+                button.addEventListener("click", function () {
+                    const targetId = button.getAttribute("data-target");
+                    const body = document.querySelector(targetId);
+                    const parentItem = button.closest(".faq-accordion-item");
+                    const upIcon = parentItem.querySelector(".faq-accordion-up-btn");
+                    const downIcon = parentItem.querySelector(".faq-accordion-down-btn");
+                    const itemId = document.querySelector(`#item-${index}`);
+
+                    const isOpen = !body.classList.contains("d-none");
+
+                    if (isOpen) {
+                        // Close this one only
+                        body.style.height = "0px";
+
+                        setTimeout(() => {
+                            body.classList.add("d-none");
+                            itemId.classList.remove("selected");
+                        }, 150);
+
+                        upIcon.classList.add("d-none");
+                        downIcon.classList.remove("d-none");
+                    } else {
+                        // Open this one only (no closing others)
+                        body.classList.remove("d-none");
+                        body.style.height = "100%";
+                        itemId.classList.add("selected");
+
+                        upIcon.classList.remove("d-none");
+                        downIcon.classList.add("d-none");
+                    }
+                });
+            });
+        });
+    </script>
+
+{% endblock %}

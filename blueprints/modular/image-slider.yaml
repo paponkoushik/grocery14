@@ -1,0 +1,50 @@
+title: Image Slider
+extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          fields:
+
+            header.slider_section:
+              ordering@: 3
+              type: section
+              title: Slider Section
+              underline: false
+              label: false
+              fields:
+                header.module._title.translatable:
+                  type: text
+                  label: Title
+                  classes: 'translatable'
+
+                header.module.slider:
+                  type: list
+                  fields:
+                    .bg_img:
+                      type: pagemediaselect
+                      label: Item BG Image
+                    .image:
+                      type: pagemediaselect
+                      label: Image
+                    .title.translatable:
+                      type: text
+                      label: Title
+                      classes: 'translatable'
+                    .description.translatable:
+                      type: textarea
+                      label: Description
+                      classes: 'translatable'
+                    .button_text.translatable:
+                      type: text
+                      label: Button Text
+                      classes: 'translatable'
+                    .button_url:
+                      type: text
+                      label: Button Url
+            header.media_order:
+              ordering@: 99
+
+

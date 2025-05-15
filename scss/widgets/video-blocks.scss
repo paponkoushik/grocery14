@@ -1,0 +1,184 @@
+.video-section {
+  padding: 60px 0;
+  background: var(--color-white);
+  background-repeat: no-repeat;
+  background-size: 100% 570px;
+
+  @include desktop-small{
+    padding: 40px 0;
+  }
+
+  @include tablet{
+    background-image: url("../../images/video_section_bg_mobile.webp") !important;
+    max-height: unset;
+    background-size: 100% 100%;
+  }
+
+  .feature-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 217px;
+
+    @include desktop-small{
+      gap: 196px;
+    }
+
+    .feature-title{
+      font-family: var(--secondary-font);
+      color: var(--color-white);
+      font-size: 60px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 72px; /* 120% */
+      letter-spacing: -1.2px;
+      text-align: center;
+
+      @include mobile{
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 44px; /* 122.222% */
+        letter-spacing: -0.72px;
+        text-align: center;
+      }
+    }
+
+    .video-container {
+      max-width: 1280px;
+      width: 100%;
+      position: relative;
+      //top: 200px;
+
+
+      video {
+        width: 100%;
+        display: block;
+        border-radius: 24px;
+        background: #000;
+        // object-fit: cover;
+        max-height: 646px;
+
+        @include mobile{
+          max-height: 475px;
+          height: 100%;
+        }
+      }
+      .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 40px;
+        background: rgba(255, 255, 255, 0.30);
+        color: var(--color-white);
+        border: none;
+        width: 80px;
+        height: 80px;
+        cursor: pointer;
+        z-index: 8;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: pulseEffect 1s infinite;
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+        }
+
+        .play-button-inside{
+          border-radius: 30px;
+          background: var(--Webshop-2-White, #FFF);
+          display: flex;
+          width: 60px;
+          height: 60px;
+          justify-content: center;
+          align-items: center;
+          svg {
+              margin-left: 5px;
+          }
+        }
+      }
+
+      .desktop-video{
+        @include mobile{
+          display: none;
+        }
+      }
+
+      .mobile-video{
+        display: none;
+
+        @include mobile{
+          display: block;
+        }
+      }
+    }
+
+    .features-content-wrapper {
+      display: flex;
+      gap: 2rem;
+      // flex-wrap: wrap;
+      @include desktop-small {
+        flex-direction: column;
+        gap: 20px;
+        // flex-wrap: nowrap;
+      }
+      .feature-item {
+        // background: #F6F9F8;
+        // border-radius: 20px;
+        // border: 1px solid #D7D7D7;
+        transition: 1s ease-in-out;
+        max-width: 357px;
+        width: 100%;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        border-radius: 8px;
+        @include desktop-small {
+          width: 100%;
+        }
+        .feature-image {
+          // padding: 2rem;
+        }
+        hr {
+          border-bottom: 1px solid #818181;
+        }
+        .feature-content {
+          // padding: 2rem;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          .feature-title {
+            height: unset !important;
+            @include typography(display-xs, semibold);
+            // margin-bottom: 1rem;
+          }
+          .feature-description {
+            @include typography('text-md', 'regular');
+          }
+        }
+        &:hover {
+          background: #15301F;
+          color: var(--color-white);
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulseEffect {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 150, 81, 0.2);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(239, 150, 81, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 150, 81, 0);
+  }
+}

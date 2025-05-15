@@ -1,0 +1,137 @@
+.no-hero-header {
+  padding: calc(80px + $header-gap) 0 0 0;
+  background: var(--bg-body);
+  background-image: url("../../images/no_hero_bg.webp");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  @include desktop-small {
+    padding: 40px 0 0 0;
+    margin-top: $header-gap;
+    background-image: url("../../images/no_hero_bg_mobile.webp");
+  }
+
+  .no-hero {
+    background: none;
+
+    .no-hero-title-wrapper {
+      @include padding(padding-lg);
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      align-items: center;
+      justify-content: space-between;
+
+      @include tablet {
+        flex-direction: column;
+        @include padding(padding-sm);
+        max-width: 100%;
+        gap: 57px;
+      }
+
+      .no-hero-content {
+        flex: 1.2;
+        @include tablet {
+          align-self: start;
+        }
+      }
+
+      h1 {
+        font-size: 72px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 90px; /* 125% */
+        letter-spacing: -1.44px;
+        color: var(--color-white);
+        font-family: var(--secondary-font);
+
+        @include tablet {
+          font-size: 48px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 60px; /* 125% */
+          letter-spacing: -0.96px;
+        }
+      }
+    }
+
+    .no-hero-breadcrumb {
+      display: inline-block;
+      margin-top: 24px;
+      width: 100%;
+      text-align: center;
+
+      p {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        color: var(--color-text-light);
+      }
+
+      ol {
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        flex-wrap: wrap;
+        padding: 0 0;
+        gap: .5rem;
+        margin-bottom: 0;
+        list-style: none;
+        border-radius: 0;
+
+        .breadcrumb-item {
+          display: flex;
+          align-items: start;
+          color: var(--color-white);
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 30px;
+
+          @include desktop-small {
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px;
+          }
+
+          a {
+            text-decoration: none;
+            color: var(--color-white);
+          }
+
+          & + .breadcrumb-item::before {
+            float: none;
+            padding-right: 0;
+            content: "";
+          }
+
+          &.arry svg {
+            display: inline-block;
+            @include typography(text-xs);
+          }
+        }
+      }
+    }
+
+    .button {
+      width: fit-content;
+      margin-top: 34px;
+
+      @include tablet {
+        margin-bottom: 24px;
+      }
+    }
+
+    .no-hero-image {
+      flex: 1;
+      img {
+        display: flex;
+        align-items: end;
+        max-width: 100%;
+      }
+    }
+  }
+}

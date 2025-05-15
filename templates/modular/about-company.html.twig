@@ -1,0 +1,103 @@
+{% extends 'partials/variables.html.twig' %}
+
+{% set module = page.header.contents %}
+{% set features = page.header.about_company_features %}
+{% set image = page.media[module.image] %}
+{% set bottom_left_image = page.media[module.bottom_left_image] %}
+
+{% block render_block %}
+    <div class="about-company-wrapper slide-up {{ module.parent_classes }}">
+        <div class="container">
+
+            <div class="contents-wrapper {{ module.child_classes }}">
+
+                <div class="header-content">
+                    {% if module.header_title != null %}
+                        <h3>{{ module.header_title.translatable|striptags('<span>')|raw }}</h3>
+                    {% endif %}
+
+                    {% if module.header_desc != null %}
+                        <p>{{ module.header_desc.translatable|raw }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="company-contents {{ module.direction }}">
+                    <div class="contents">
+                        <div class="contents-data">
+                            {% if module.content_title != null %}
+                                <h3 class="content-title">{{ module.content_title.translatable|striptags('<span>,<br>')|raw }}</h3>
+                            {% endif %}
+                            <!-- Button -->
+
+                            {# {% if module.button_text.translatable != null %}
+                                <a href="/{{ grav.language.getActive }}{{ module.button_url }}"
+                                   class="button-outline about-company-btn">
+                                    {{ module.button_text.translatable }}
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
+                                        <path d="M14.1141 10.4006C13.5708 10.4994 13.2104 11.02 13.3092 11.5634C13.4081 12.1067 13.9287 12.4671 14.472 12.3683L19.0537 11.535L11.3211 22.7055C11.0067 23.1596 11.12 23.7826 11.5741 24.0969C12.0282 24.4113 12.6512 24.298 12.9655 23.8439L20.6982 12.6734L21.5314 17.2551C21.6302 17.7984 22.1509 18.1588 22.6942 18.06C23.2376 17.9611 23.5979 17.4406 23.4992 16.8971L22.2352 9.94764C22.2307 9.92215 22.2253 9.89676 22.219 9.87168C22.1935 9.77196 22.1537 9.67922 22.1021 9.59524C22.0322 9.4814 21.9382 9.37984 21.8217 9.29868L21.8192 9.29698C21.8167 9.29521 21.8141 9.29345 21.8116 9.29168C21.7075 9.22112 21.5948 9.17263 21.4791 9.14545C21.3491 9.11482 21.2109 9.10985 21.0711 9.13534L14.1141 10.4006Z" fill="white"/>
+                                    </svg>
+                                </a>
+                            {% endif %} #}
+                        </div>
+                        {% if page.header.about_company_features | length > 0 %}
+                            <div class="contents-list">
+                                {% for item in page.header.about_company_features %}
+                                    {% set icon = page.media[item.icon] %}
+                                    <div class="contents-list-item">
+                                        <div class="icon">
+                                            <img src="{{ icon.url }}" alt="">
+                                            <h4 class="title">{{ item.title.translatable }}</h4>
+                                        </div>
+                                        <div class="description">
+                                            <p>{{ item.brief.translatable }}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+
+                    <div class="image">
+                        {# {% if module.img_on_content != null %}
+                            <img class="img-on-content" src="{{ page.media[module.img_on_content].url() }}"/>
+                        {% endif %} #}
+
+                        <img class="main-img" src="{{ image.url }}" alt="About Company Image"/>
+                        <div class="image-text">
+                            <img class="main-img" src="{{ bottom_left_image.url }}" alt="About Company Image"/>
+                            <div class= "content-button">
+                                <h3>{{ module.bottom_right_text.translatable }}</h3>
+
+                                {% if module.button_text.translatable != null %}
+                                    <a href="/{{ grav.language.getActive }}{{ module.button_url }}"
+                                    class="button">
+                                        {{ module.button_text.translatable }}
+                                    </a>
+                                {% endif %}
+                            </div>
+                        </div>
+{# 
+                        {% if module.overlay_image != null %}
+                            <img class="overlay-image" src="{{ page.media[module.overlay_image].url() }}"/>
+                        {% endif %} #}
+                    </div>
+                    {# {% if image != null %}
+                        <div class="image">
+                            {% if module.img_on_content != null %}
+                                <img class="img-on-content" src="{{ page.media[module.img_on_content].url() }}"/>
+                            {% endif %}
+
+                            <img class="main-img" src="{{ image.url }}" alt="About Company Image"/>
+
+                            {% if module.overlay_image != null %}
+                                <img class="overlay-image" src="{{ page.media[module.overlay_image].url() }}"/>
+                            {% endif %}
+                        </div>
+                    {% endif %} #}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

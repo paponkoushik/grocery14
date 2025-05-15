@@ -1,0 +1,180 @@
+.faqs {
+  padding: 80px 0;
+  background: var(--color-white);
+
+  @include desktop-small {
+    padding: 40px 0;
+  }
+
+  .container {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    max-width: 1274px;
+  }
+
+  .faqs-container {
+    display: flex;
+    gap: 60px;
+    flex-direction: column;
+    max-width: 610px;
+    margin: 0 auto;
+    padding: 60px 0 40px;
+    align-items: center;
+
+    @include desktop-small {
+      flex-direction: column;
+      gap: 34px;
+      padding: 40px 0 20px;
+    }
+
+    .faqs-left {
+      max-width: 362px;
+      @include desktop-small {
+        max-width: 100%;
+      }
+
+      .faqs-header-section {
+        display: flex;
+        gap: 0;
+        flex-direction: column;
+
+        .block-title {
+          @include typography(display-lg, semibold);
+          font-family: var(--secondary-font);
+          text-align: center;
+          color: var(--color-white);
+
+          @include desktop-small {
+            @include typography(display-md, semibold);
+          }
+
+          span {
+            color: var(--color-primary);
+            font-family: var(--secondary-font);
+          }
+        }
+
+        .page-content {
+          color: var(--color-tertiary);
+          @include typography(text-xl, regular);
+          text-align: center;
+          max-width: 660px;
+          margin: 0 auto;
+
+          @include desktop-small {
+            @include typography(text-lg, regular);
+          }
+        }
+
+        .faqs-started-btn {
+          .button {
+            display: flex;
+            padding: 24px 24px 24px 24px;
+            border-radius: 44px;
+            background-color: var(--color-primary);
+            color: var(--color-text-dark);
+            position: relative;
+            @include typography(text-md, bold);
+            height: 52px;
+            max-width: 170px;
+            margin-top: 16px;
+
+            @include desktop-small {
+              padding: 24px 12px;
+              width: 154px;
+              height: 44px;
+              margin-top: 4px;
+            }
+          }
+
+          .faqs-started-btn-icon {
+            position: absolute;
+            width: 52px;
+            right: -30px;
+
+            @include desktop-small {
+              width: 44px;
+            }
+          }
+        }
+      }
+    }
+
+    .faqs-items {
+
+      .faq-accordion-item {
+        border-radius: 20px;
+        background: var(--color-white, #FFF);
+        box-shadow: 0px 4px 11.3px 0px rgba(0, 0, 0, 0.07);
+        margin-bottom: 20px;
+        transition: 0.5s all;
+
+        &.selected{
+          .faq-accordion-btn{
+            color: var(--color-secondary) !important;
+          }
+        }
+
+        .faq-accordion-header {
+          display: flex;
+          gap: 30px;
+          cursor: pointer;
+          padding: 20px;
+          flex-direction: row;
+          margin-top: -2px;
+
+          .faq-accordion-btn {
+            flex: 1;
+            border: none;
+            background-color: transparent;
+            text-align: left;
+            @include typography(display-xs, medium);
+            cursor: pointer;
+            color: var(--color-text-dark);
+            font-family: var(--secondary-font);
+            transition: 0.5s all;
+
+            @include desktop-small {
+             @include typography(text-xl, medium);
+            }
+          }
+        }
+
+        .faq-accordion-body {
+          overflow: hidden;
+          transition: height 3s ease;
+          padding: 0 20px 20px 20px;
+          @include typography(text-lg, regular);
+          color: var(--color-text-light);
+          display: flex;
+          gap: 20px;
+
+          p {
+            @include typography(text-lg, regular);
+
+            @include desktop-small {
+              @include typography (text-sm, regular);
+            }
+          }
+
+          img{
+            max-width: 100%;
+            @include tablet{
+              display: none;
+            }
+          }
+
+        }
+
+        .d-none {
+          display: none;
+        }
+
+        .d-block {
+          display: block;
+        }
+      }
+    }
+  }
+}

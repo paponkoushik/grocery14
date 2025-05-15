@@ -1,0 +1,112 @@
+title: Dynamic Content
+extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          fields:
+            header_section:
+              ordering@: 3
+              type: section
+              title: Header Content Section
+              underline: true
+
+              fields:
+                header.signup_btn_text.translatable:
+                  type: text
+                  label: Signup Button Text
+                  classess: 'translatable'
+
+            footer_section:
+              ordering@: 3
+              type: section
+              title: Footer Content Section
+              underline: true
+
+              fields:
+                header.footer.top_title.translatable:
+                  type: text
+                  label: Footer Top Title
+                  classess: 'translatable'
+
+                header.footer.top_brief.translatable:
+                  type: text
+                  label: Footer Top Brief
+                  classess: 'translatable'
+
+                header.footer.top_btn_text.translatable:
+                  type: text
+                  label: Footer Top BTN Text
+                  classess: 'translatable'
+
+                header.footer.branding_text.translatable:
+                  type: text
+                  label: Branding Text
+                  classess: 'translatable'
+
+                header.footer.watermark:
+                  type: text
+                  label: Watermark Text
+            pricing_section:
+              ordering@: 3
+              type: section
+              title: Pricing Page Content
+              underline: true
+              fields:
+                header.pricing.left_title.translatable:
+                  type: text
+                  label: Pricing Left Title
+                header.pricing.left_button_text.translatable:
+                  type: text
+                  label: Pricing Left Button Text
+
+            login_section:
+              ordering@: 3
+              type: section
+              title: Login Page Content
+              underline: true
+
+              fields:
+                header.login.title.translatable:
+                  type: text
+                  label: Title
+                  classess: 'translatable'
+
+                header.login.dec.translatable:
+                  type: text
+                  label: Description
+                  classess: 'translatable'
+            unsub_section:
+              ordering@: 3
+              type: section
+              title: Unsubscribe Page Content
+              underline: true
+
+              fields:
+                header.unsub.title.translatable:
+                  type: text
+                  label: Title
+                  classess: 'translatable'
+
+                header.unsub.dec.translatable:
+                  type: text
+                  label: Description
+                  classess: 'translatable'
+            profile_section:
+              ordering@: 3
+              type: section
+              title: Profile Content
+              underline: true
+
+              fields:
+                header.profile.title.translatable:
+                  type: text
+                  label: Title 1
+                  classess: 'translatable'
+
+                header.profile.title_2.translatable:
+                  type: text
+                  label: Title 2
+                  classess: 'translatable'

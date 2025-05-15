@@ -1,0 +1,104 @@
+title: Why Choose
+extends@: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          fields:
+
+            module_section:
+              ordering@: 3
+              type: section
+              title: Module blocks
+              underline: true
+              fields:
+                header.module.title.translatable:
+                  type: text
+                  label: Title
+                  classes: 'translatable'
+                header.module.top_image:
+                  type: pagemediaselect
+                  label: Top Image
+                  preview_images: true
+                header.module.top_title.translatable:
+                  type: text
+                  label: Top Title
+                  classes: 'translatable'
+                header.module.top_sub_title.translatable:
+                  type: text
+                  label: Top Sub Title
+                  classes: 'translatable'
+                header.module.button_text.translatable:
+                  type: text
+                  label: Button Text
+                  classes: 'translatable'
+                header.module.button_url:
+                  type: text
+                  label: Button URL
+                  classes: 'translatable'
+                # header.module.left_bottom_sub_title.translatable:
+                #   type: text
+                #   label: Left Bottom Sub Title
+                #   classes: 'translatable'
+                # header.module.right_bottom_title.translatable:
+                #   type: text
+                #   label: Right Bottom Title
+                #   classes: 'translatable'
+                # header.module.right_bottom_image:
+                #   type: pagemediaselect
+                #   label: Right Bottom Image
+                # header.module.last_left_text.translatable:
+                #   type: text
+                #   label: Last Left Text
+                #   classes: 'translatable'
+                # header.module.last_right_text.translatable:
+                #   type: text
+                #   label: Last Right Text
+                #   classes: 'translatable'
+                # header.module.last_right_button_text.translatable:
+                #   type: text
+                #   label: Last Right Text
+                #   classes: 'translatable'
+                # header.module.last_left_image:
+                #   type: pagemediaselect
+                #   label: Last Left Image
+                # header.module.last_right_image:
+                #   type: pagemediaselect
+                #   label: Last Right Image
+
+                  
+
+
+            header.why_choose_section:
+              ordering@: 4
+              type: section
+              title: Why Choose
+              underline: false
+              label: false
+              fields:
+                header.why_choose:
+                  type: list
+                  fields:
+                    .title.translatable:
+                      type: text
+                      label: Title
+                      classes: 'translatable'
+                    .description.translatable:
+                      type: textarea
+                      label: Description
+                      classes: 'translatable'
+                    .icon:
+                      type: pagemediaselect
+                      label: icon
+                    .image_inside:
+                      type: pagemediaselect
+                      label: Image Inside
+                    .image_outside:
+                      type: pagemediaselect
+                      label: Image Outside
+            header.media_order:
+                ordering@: 99
+
+

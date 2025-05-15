@@ -1,0 +1,200 @@
+{% extends 'partials/variables.html.twig' %}
+
+{% set module = page.header.module %}
+
+{% block render_block %}
+    <div class="image_slider">
+        <div class="container">
+            <div class="image_slider_header">
+                {% if module._title %}
+                    <h3 class="block-title">{{ module._title.translatable|striptags('<span><br>')|raw }}</h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="291" height="30" viewBox="0 0 291 30" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M138.043 0.0760504C119.96 0.703587 85.2386 6.47231 52.578 14.2755C49.9442 14.9048 46.4745 15.7343 44.8675 16.1189C23.1973 21.3055 11.5429 24.5762 3.38518 27.761C0.201466 29.0041 -0.0720543 29.1547 0.0121932 29.6192C0.135237 30.2969 0.653222 30.1922 6.56078 28.2958C12.6738 26.3335 18.153 24.9086 33.1799 21.3735C83.403 9.55841 106.861 5.22699 133.173 2.91023C138.329 2.45618 146.565 2.53525 146.565 3.03872C146.565 3.71125 141.4 6.00483 129.44 10.6427C114.726 16.3484 105.769 20.1333 104.976 20.9802C103.62 22.4272 105.111 23.4714 108.337 23.3346C110.181 23.2564 110.599 23.1972 119.051 21.8202C143.316 17.8667 158.824 15.8601 179.842 13.9546C211.849 11.0526 232.243 9.98206 270.583 9.19079C284.359 8.90655 285.072 8.86688 287.615 8.24454C288.595 8.00465 289.766 7.77021 290.216 7.72345C291.273 7.61409 291.26 7.47419 290.184 7.37103C289.715 7.32605 288.638 7.11138 287.789 6.89392C285.698 6.35775 284.312 6.32975 272.368 6.58218C232.33 7.42831 211.262 8.51041 180.735 11.2887C164.68 12.7498 157.526 13.5438 145.835 15.1618C137.842 16.2678 116.747 19.4879 113.792 20.0527C112.179 20.3609 119.178 17.4536 131.472 12.7086C147.022 6.70649 150.118 5.07632 150.133 2.88337C150.149 0.410476 147.323 -0.245828 138.043 0.0760504Z"
+                              fill="#A38FFB"/>
+                    </svg>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="image_slider_container container">
+            <div class="image_slider_parent">
+                <div class="image_slider_wrapper">
+                    {% for item in module.slider %}
+                        {% set image = page.media[item.image] %}
+                        {% set bg_image = page.media[item.bg_img] %}
+                        <div class="slider_item" style="background-image: url('{{ bg_image.url }}')">
+                            <div class="item_image">
+                                <img src="{{ image.url }}" alt="">
+                            </div>
+                            <div class="item_content">
+                                <h3>{{ item.title.translatable }}</h3>
+                                <p>{{ item.description.translatable }}</p>
+                                <a class="button" href="{{ item.button_url }}">{{ item.button_text.translatable }}</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    {# Clone first few items to allow smooth loop #}
+                    {% for item in module.slider|slice(0, 5) %}
+                        {% set image = page.media[item.image] %}
+                        {% set bg_image = page.media[item.bg_img] %}
+                        <div class="slider_item clone" style="background-image: url('{{ bg_image.url }}')">
+                            <div class="item_image">
+                                <img src="{{ image.url }}" alt="">
+                            </div>
+                            <div class="item_content">
+                                <h3>{{ item.title.translatable }}</h3>
+                                <p>{{ item.description.translatable }}</p>
+                                <a class="button" href="{{ item.button_url }}">{{ item.button_text.translatable }}</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="slider_control">
+                    <div class="slider_arrows">
+                        <a href="#" class="arrow arrow_left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 18 10"
+                                 fill="none">
+                                <path d="M0.125001 4.99698C0.125084 4.47239 0.39365 4.07994 0.686524 3.77334C0.959313 3.48779 1.38846 3.14955 1.8252 2.80557L2.83887 2.00674C3.58127 1.42186 4.20251 0.931865 4.71973 0.631742C5.23994 0.329908 5.87983 0.0853012 6.54297 0.378813C7.22416 0.680419 7.44691 1.33214 7.53711 1.91885C7.61971 2.45639 7.62373 3.16595 7.62402 3.99991L16.875 3.99991C17.4273 3.99991 17.875 4.44762 17.875 4.99991C17.875 5.55219 17.4273 5.99991 16.875 5.99991L7.62402 5.99991C7.62372 6.8323 7.61957 7.54027 7.53711 8.07706C7.44694 8.66385 7.22428 9.31641 6.54297 9.61807C5.87989 9.91146 5.23989 9.66597 4.71973 9.36416C4.20252 9.06402 3.58121 8.57401 2.83887 7.98916L1.8252 7.19131C1.38859 6.84743 0.959325 6.50904 0.686524 6.22354C0.393604 5.91689 0.125001 5.52168 0.125001 4.99698Z"
+                                      fill="#0D0D0D"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="slider_dots">
+                        {% for item in module.slider %}
+                            <span class="dot {% if loop.first %}active{% endif %}"
+                                  data-slide="{{ loop.index0 }}"></span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="slider_arrows">
+                        <a href="#" class="arrow arrow_right">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 18 10"
+                                 fill="none">
+                                <path d="M17.875 5.00302C17.8749 5.52761 17.6063 5.92006 17.3135 6.22666C17.0407 6.51221 16.6115 6.85045 16.1748 7.19443L15.1611 7.99326C14.4187 8.57814 13.7975 9.06813 13.2803 9.36826C12.7601 9.67009 12.1202 9.9147 11.457 9.62119C10.7758 9.31958 10.5531 8.66786 10.4629 8.08115C10.3803 7.54361 10.3763 6.83405 10.376 6.00009L1.125 6.00009C0.572715 6.00009 0.124999 5.55237 0.124999 5.00009C0.124999 4.44781 0.572715 4.00009 1.125 4.00009L10.376 4.00009C10.3763 3.1677 10.3804 2.45973 10.4629 1.92294C10.5531 1.33615 10.7757 0.683589 11.457 0.381929C12.1201 0.088542 12.7601 0.334029 13.2803 0.635835C13.7975 0.935984 14.4188 1.42599 15.1611 2.01084L16.1748 2.80869C16.6114 3.15257 17.0407 3.49096 17.3135 3.77646C17.6064 4.08311 17.875 4.47832 17.875 5.00302Z"
+                                      fill="#0D0D0D"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliderSettings = {
+                autoSlideEnabled: false,
+                autoSlideInterval: 5000,
+            };
+
+            const wrapper = document.querySelector('.image_slider_container .image_slider_wrapper');
+            const items = document.querySelectorAll('.image_slider_container .slider_item');
+            const dots = document.querySelectorAll('.image_slider_container .dot');
+            const totalItems = items.length;
+            const clonedItems = 3;
+            const actualItems = totalItems - clonedItems;
+
+            let index = 0;
+            let autoSlideTimer = null;
+
+            function updateSlider() {
+                const itemWidth = items[0].offsetWidth;
+                const itemMarginRight = parseFloat(getComputedStyle(items[0]).marginRight); // Get the right margin of the item
+                const totalItemWidth = itemWidth + itemMarginRight; // Include the margin in the width calculation
+                const translateX = -(totalItemWidth * index);
+                wrapper.style.transform = `translateX(${translateX}px)`;
+
+                // Update dots
+                dots.forEach(dot => dot.classList.remove('active'));
+                if (dots[index % actualItems]) {
+                    dots[index % actualItems].classList.add('active');
+                }
+
+                // Remove all 'active' and 'first-active' classes and inline styles
+                items.forEach(item => {
+                    item.classList.remove('active');
+                    item.style.marginLeft = '';
+                });
+
+                // Add 'active' to the current + next two items
+                for (let i = 0; i < 2; i++) {
+                    const visibleIndex = (index + i) % actualItems;
+                    items[visibleIndex].classList.add('active');
+
+                    // if (i === 0) {
+                    //     // First visible slide
+                    //     // items[visibleIndex].classList.add('first-active');
+                    //
+                    //     // Only apply margin-left if screen width is <= 768px
+                    //     if (window.innerWidth <= 768) {
+                    //         items[visibleIndex].style.marginLeft = '-25%';
+                    //     }
+                    // }
+                }
+            }
+
+            function autoSlide() {
+                index++;
+                if (index >= actualItems) {
+                    wrapper.style.transition = 'none';
+                    index = 0;
+                    wrapper.style.transform = `translateX(0px)`;
+                    setTimeout(() => {
+                        wrapper.style.transition = 'transform 0.6s ease-in-out';
+                        index++;
+                        updateSlider();
+                    }, 50);
+                } else {
+                    updateSlider();
+                }
+            }
+
+            // Dot click
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    const slideTo = parseInt(e.target.getAttribute('data-slide'));
+                    index = slideTo;
+                    updateSlider();
+                });
+            });
+
+            // Auto slide
+            if (sliderSettings.autoSlideEnabled) {
+                autoSlideTimer = setInterval(autoSlide, sliderSettings.autoSlideInterval);
+            }
+
+            // Left arrow functionality
+            const leftArrow = document.querySelector('.arrow_left');
+            leftArrow.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevents the default link behavior (if any)
+                index--;
+                if (index < 0) {
+                    index = actualItems - 1; // Loop back to the last item
+                }
+                updateSlider();
+            });
+
+            // Right arrow functionality
+            const rightArrow = document.querySelector('.arrow_right');
+            rightArrow.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevents the default link behavior (if any)
+                index++;
+                if (index >= actualItems) {
+                    index = 0; // Loop back to the first item
+                }
+                updateSlider();
+            });
+
+            // Resize
+            window.addEventListener('resize', updateSlider);
+
+            updateSlider(); // Initial call
+        });
+    </script>
+
+{% endblock %}

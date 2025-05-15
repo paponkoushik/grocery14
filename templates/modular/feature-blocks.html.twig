@@ -1,0 +1,59 @@
+{% extends 'partials/variables.html.twig' %}
+
+{% set module = page.header.module %}
+
+{% block render_block %}
+    <div class="features feature-animation">
+        <div class="container">
+            <div class="feature-bottom-section">
+                <div class="features-header-section">
+                    {% if module.title %}
+                        <h3 class="block-title">{{ module.title.translatable|striptags('<span>,<br>')|raw }}</h3>
+                    {% endif %}
+                    <div class="description">
+                        {% if page.content %}
+                            <div class="features-section-description">
+                                {{ page.content|raw }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {% set first_row_count = 3 %}  {# The number of items in the first row #}
+                {% set second_row_count = 2 %} {# The number of items in the second row #}
+
+                {% for key, feature_block in page.header.feature_blocks %}
+                    {% if feature_block.description != '' and feature_block.title != '' %}
+
+                        {# Start the first .features-container for the first 3 items #}
+                        {% if key == 0 %}
+                            <div class="features-container">
+                        {% endif %}
+
+                        {# Add the vertical-feature to the first row #}
+                        {% if key < first_row_count %}
+                            {% include 'widgets/vertical-feature.html.twig' with {feature_block: feature_block, module: module, index: key } %}
+                        {% endif %}
+
+                        {# Start the second .features-container for the next 2 items #}
+                        {% if key == first_row_count %}
+                            </div> <!-- Close the first features-container -->
+                            <div class="features-container last-child">
+                        {% endif %}
+
+                        {# Add the vertical-feature to the second row #}
+                        {% if key >= first_row_count %}
+                            {% include 'widgets/vertical-feature.html.twig' with {feature_block: feature_block, module: module, index: key } %}
+                        {% endif %}
+
+                        {# Close the second .features-container after the last item (key == 4) #}
+                        {% if key == page.header.feature_blocks|length - 1 %}
+                            </div> <!-- Close the second features-container -->
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

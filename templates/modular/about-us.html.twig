@@ -1,0 +1,133 @@
+{% extends 'partials/variables.html.twig' %}
+
+{% set module = page.header.contents %}
+{% set content = page.header.about_us_content %}
+{% set image = page.media[module.image] %}
+
+{% block render_block %}
+    <div class="about_us_wrapper slide-up">
+        <div class="container">
+            <div class="about_us_head">
+                <h1 class="title">{{ module.header_title.translatable | raw }}</h1>
+                <div class="description">
+                    <p>{{ module.header_description.translatable }}</p>
+                    <div class="buttons">
+                        {% for button in module.content_buttons %}
+                            <a class="button" href="{{ button.link }}">
+                                {{ button.text.translatable }}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none">
+                                    <path d="M15.7071 6.29289C15.3166 5.90237 14.6834 5.90237 14.2929 6.2929C13.9024 6.68342 13.9024 7.31659 14.2929 7.70711L17.5858 11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H17.5858L14.2929 16.2929C13.9024 16.6834 13.9024 17.3166 14.2929 17.7071C14.6835 18.0976 15.3166 18.0976 15.7072 17.7071L20.7018 12.7124C20.7202 12.6942 20.738 12.6753 20.755 12.6558C20.8225 12.5781 20.8761 12.4926 20.9158 12.4024C20.9696 12.2801 20.9996 12.145 21 12.003V12C21 11.9969 21 11.9938 21 11.9907C20.9988 11.865 20.9745 11.7447 20.931 11.6341C20.8822 11.5098 20.8076 11.3933 20.7071 11.2929L15.7071 6.29289Z"
+                                          fill="white"/>
+                                </svg>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="about_us_content" style="background-image: url('{{ image.url }}')">
+                <div class="count_content">
+                    <div class="count_row">
+                        {% for key, item in content %}
+                            <div class="count">
+                                <div class="count_head">
+                                    {% set icon = page.media[item.icon] %}
+                                    <img class="count_img" src="{{ icon.url }}" alt="Icon"/>
+                                    <h4 class="count_number">
+                                        {{ item.count.translatable|raw }}
+                                    </h4>
+                                </div>
+                                <p class="count_details">
+                                    {{ item.brief.translatable|raw }}
+                                </p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="count_arrows">
+                        <div class="arrow arrow_left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 18 10"
+                                 fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M0.125001 4.99731C0.125001 5.52202 0.393289 5.91664 0.686209 6.22329C0.958994 6.50886 1.38826 6.84695 1.82504 7.19097L2.83881 7.98959C3.58132 8.57457 4.20286 9.06423 4.72013 9.36436C5.24039 9.66623 5.88006 9.91149 6.54328 9.61784C7.22459 9.31618 7.44671 8.66407 7.53688 8.07728C7.61937 7.54047 7.62468 6.83248 7.62499 6L16.875 6C17.4273 6 17.875 5.55229 17.875 5C17.875 4.44772 17.4273 4 16.875 4L7.62499 4C7.6247 3.16605 7.61948 2.45685 7.53688 1.91931C7.44671 1.33252 7.22459 0.680406 6.54328 0.378745C5.88007 0.0850952 5.24039 0.330357 4.72013 0.632222C4.20286 0.932349 3.58134 1.422 2.83884 2.00697L1.82504 2.80561C1.38826 3.14963 0.958995 3.48773 0.686209 3.77329C0.39329 4.07994 0.125001 4.47261 0.125001 4.99731Z"
+                                      fill="white"/>
+                            </svg>
+                        </div>
+                        <div class="arrow arrow_right">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 18 10"
+                                 fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M17.875 5.00269C17.875 4.47798 17.6067 4.08336 17.3138 3.77671C17.041 3.49114 16.6117 3.15305 16.175 2.80903L15.1612 2.01041C14.4187 1.42543 13.7971 0.935768 13.2799 0.635637C12.7596 0.333773 12.1199 0.0885102 11.4567 0.382159C10.7754 0.68382 10.5533 1.33593 10.4631 1.92272C10.3806 2.45953 10.3753 3.16752 10.375 4L1.125 4C0.572715 4 0.125001 4.44771 0.125001 5C0.125001 5.55228 0.572715 6 1.125 6L10.375 6C10.3753 6.83395 10.3805 7.54315 10.4631 8.08069C10.5533 8.66748 10.7754 9.31959 11.4567 9.62125C12.1199 9.9149 12.7596 9.66964 13.2799 9.36778C13.7971 9.06765 14.4187 8.578 15.1612 7.99303L16.175 7.19439C16.6117 6.85037 17.041 6.51227 17.3138 6.22671C17.6067 5.92006 17.875 5.52739 17.875 5.00269Z"
+                                      fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                {#                <div class="image"> #}
+                {#                    <img class="main-img" src="{{ image.url }}" alt="Mission Vission Image"/> #}
+                {#                </div> #}
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('.about_us_wrapper .count_content .count_row .count');
+            console.log(slides.length)
+            const leftArrow = document.querySelector('.about_us_wrapper .count_arrows .arrow_left');
+            const rightArrow = document.querySelector('.about_us_wrapper .count_arrows .arrow_right');
+            let current = 0;
+            const autoSlide = false;
+            let autoSlideInterval;
+
+            function showSlide(index) {
+                if (index >= (slides.length)) current = 0;
+                else if (index < 0) current = slides.length - 1;
+                else current = index;
+
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                });
+
+                slides[current].classList.add('active');
+            }
+
+            function nextSlide() {
+                showSlide(current + 1);
+            }
+
+            function prevSlide() {
+                showSlide(current - 1);
+            }
+
+            function startAutoSlide() {
+                if (autoSlide) {
+                    autoSlideInterval = setInterval(nextSlide, 5000);
+                }
+            }
+
+            function resetAutoSlide() {
+                if (autoSlide) {
+                    clearInterval(autoSlideInterval);
+                    startAutoSlide();
+                }
+            }
+
+            leftArrow?.addEventListener('click', () => {
+                prevSlide();
+                resetAutoSlide();
+            });
+
+            rightArrow?.addEventListener('click', () => {
+                nextSlide();
+                resetAutoSlide();
+            });
+
+            // Initialize
+            showSlide(current);
+            startAutoSlide();
+        });
+    </script>
+
+{% endblock %}

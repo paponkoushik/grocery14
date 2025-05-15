@@ -1,0 +1,209 @@
+.image_slider {
+  padding: 120px 0 60px 0;
+  background-color: var(--color-white);
+
+  @include desktop-small {
+    padding: 40px 0;
+  }
+
+  .image_slider_header {
+    margin: 0 auto 30px auto;
+    max-width: 490px;
+    text-align: right;
+
+    .block-title {
+      @include typography(display-lg, semibold);
+      font-family: var(--secondary-font);
+      color: var(--text-color-dark);
+      text-align: center;
+
+      @include desktop-small {
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 44px;
+        letter-spacing: -0.72px;
+        max-width: 343px;
+        margin: 0 auto;
+
+        svg {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .image_slider_container{
+    padding-right: 0 !important;
+
+    @media (max-width: 1360px) {
+      padding-right: 1rem !important;
+    }
+
+    @media (max-width: 1300px) {
+      padding-right: 2rem !important;
+    }
+
+    @include desktop-small{
+      padding-right: 1rem !important;
+    }
+  }
+
+  .image_slider_parent {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .image_slider_wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    transition: transform 0.6s ease-in-out;
+    //gap: 30px;
+
+    @media (max-width: 1300px){
+      gap: 0;
+    }
+
+    .slider_item {
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-position: center center;
+
+      flex: 0 0 calc((100% / 2) - 30px);
+      max-width: calc((100% / 2) - 30px);
+      box-sizing: border-box;
+      padding: 40px 30px 0 30px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-right: 40px;
+
+      @media (max-width: 1300px){
+        flex: 0 0 calc(100% / 1);
+        max-width: calc(100% / 1);
+        margin: 0;
+      }
+
+      @include mobile {
+        padding: 10px 29px 0 29px;
+      }
+
+      .item_image {
+        padding: 20px 35px 5px 35px;
+        background-color: var(--color-white);
+        border-radius: 24px 24px 0px 0px;
+        flex: 1;
+        align-self: end;
+      }
+
+      .item_content {
+        flex: 1.2;
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+
+        h3 {
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 32px;
+          font-family: var(--secondary-font);
+
+          @include mobile {
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 24px;
+            font-family: var(--primary-font);
+          }
+        }
+
+        p {
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 28px;
+          color: var(--text-color-light);
+
+          @include mobile {
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+          }
+        }
+
+        .button {
+          width: fit-content;
+        }
+      }
+
+      .clone {
+        opacity: 0;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  .slider_control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 34px;
+    margin-top: 40px;
+
+    .slider_dots {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        background-color: var(--color-gray);
+        border-radius: 100%;
+        display: block;
+
+        &.active {
+          //width: 24px;
+          //height: 24px;
+          background-color: var(--color-primary);
+        }
+      }
+    }
+
+    .slider_arrows {
+      .arrow {
+        width: 50px;
+        height: 50px;
+        background-color: var(--color-gray);
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 1s all;
+
+        &:hover {
+          background-color: var(--color-primary);
+
+          svg {
+            path {
+              fill: #fff;
+            }
+          }
+        }
+
+        svg {
+          path {
+            transition: 1s all;
+          }
+        }
+      }
+    }
+  }
+}

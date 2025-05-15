@@ -1,0 +1,17 @@
+<div class="about_feature feature-vertical flex-column {{ module.classes|replace({',' : ' '}) }}">
+	<div class="about_feature-container">
+		{% set image = page.media[feature_block.image] %}
+		<div class="about_feature-image">
+			<img class="" src="{{ image.url }}"/>
+		</div>
+
+		{% set icon = page.media[feature_block.icon] %}
+		<div class="about_feature-content">
+			<img class="icon" src="{{ icon.url }}"/>
+			<h4 class="about_feature-title">{{ feature_block.title.translatable }}</h4>
+			{# <p class="feature-description">{{ feature_block.description.translatable }}</p> #}
+		</div>
+		<p class="about_feature-description">{{ feature_block.description.translatable }}
+	</div>
+	</p>
+</div>

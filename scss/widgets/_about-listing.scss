@@ -1,0 +1,78 @@
+.about-listing-wrapper {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background: var(--about-listing-bg-container);
+
+  .contents-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    @include padding(padding-lg);
+
+    @include desktop-small {
+      @include padding(padding-sm);
+    }
+
+    .header-content {
+      text-align: center;
+
+      h4 {
+        color: var(--color-section-subtitle);
+        @include typography(text-xl)
+      }
+
+      h4::before {
+        content: " ";
+        position: absolute;
+        height: 3px;
+        width: 20px;
+        left: -25px;
+        top: 50%;
+        background: var(--color-primary);
+      }
+    }
+
+    .listing-contents {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      gap: 80px;
+      @include desktop-small {
+        flex-direction: column;
+
+      }
+
+      .listing-content-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        flex: 1;
+        .listing {
+          display: flex;
+          gap: 1.125rem;
+
+          &.listing-horizontal {
+            flex-direction: row;
+          }
+
+          .listing-title{
+            color: var(--about-listing-title);
+            @include typography(display-xs, bold);
+          }
+          p{
+            color: var(--about-listing-text);
+            @include typography(text-xl, regular);
+          }
+        }
+      }
+      .image-container{
+        width: 100%;
+        flex: 1;
+        img{
+          width: 100%;
+        }
+      }
+
+    }
+  }
+}

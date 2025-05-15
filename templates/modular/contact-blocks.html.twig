@@ -1,0 +1,71 @@
+{% extends 'partials/variables.html.twig' %}
+{% set module = page.header.modules %}
+{% set contents = page.header.contents %}
+{% set image_top_left = page.media[module.image_top_left] %}
+{% set image_bottom_left = page.media[module.image_bottom_left] %}
+
+
+{% set module = page.header.modules %}
+{% set contents = page.header.contents %}
+
+{% block render_block %}
+    <section class="contact-block-section {{ module.classes }}">
+        <div class="container">
+            <div class="contact-block-wrapper">
+                <div class="contact-block-content-parent">
+                    <div class="contact-block-header">
+                        <p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="560" height="2" viewBox="0 0 560 2" fill="none">
+                                <path d="M1 1H559" stroke="#A38FFB" stroke-linecap="round"/>
+                            </svg>
+                            <span>{{ module.sub_title.translatable|striptags('<span>')|raw }}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="560" height="2" viewBox="0 0 560 2" fill="none">
+                                <path d="M1 1H559" stroke="#A38FFB" stroke-linecap="round"/>
+                            </svg>
+                        </p>
+                        {% if module.title %}
+                            <h1 class="text-brand">
+                                {{ module.title.translatable|striptags('<span>')|raw }}</h1>
+                        {% endif %}
+                    </div>
+                    <div class="contact-form">
+                        {% include 'forms/form.html.twig' with {form: forms('contact-us'), action: '#'} %}
+                    </div>
+                </div>
+
+                <div class="contact-block-content-area">
+                    {% for contactItem in contents %}
+                        <div class="contact-block-item">
+                            <div class="contact-icon">
+                                <img src="{{ page.media[contactItem.icon].url() }}" alt=""/>
+                            </div>
+
+                            <div class="contact-block-content">
+                                {% if loop.index == 1 %}
+                                    <p>{{ webdata('support_email') }}</p>
+                                {% elseif loop.index == 2 %}
+                                    <p>{{ webdata('company.address') }}, {{ webdata('company.city') }}, {{ webdata('company.postcode') }}, {{ webdata('company.country') }}</p>
+                                {% elseif loop.index == 3 %}
+                                    <p>{{ webdata('support_phone') }}</p>
+                                {% elseif loop.index == 4 %}
+                                    {% if webdata('support_hours') %}
+                                        {% set support_hours =  webdata('support_hours') %}
+                                    {% else %}
+                                        {% set support_hours =  'Monday - Friday 00-24 (CET), <br/> Weekends 9:00 - 17:00 (CET)' %}
+                                    {% endif %}
+                                    <p>{{ support_hours|raw }}</p>
+                                {% endif %}
+                                {# <p>{{ contactItem.description.translatable|striptags('<span>')|raw }}</p> #}
+
+                                {% if contactItem.title.translatable != null %}
+                                    <h2>{{ contactItem.title.translatable|striptags('<span>')|raw }}</h2>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <!-- End contact-block-item -->
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

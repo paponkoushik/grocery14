@@ -1,0 +1,24 @@
+<div class="pricing" data="{{ packageKey }}">
+    {% include 'partials/product_pricing/widget/_recommended_tag.html.twig' %}
+    <div class="pricing-content">
+        <div class="package-top-section">
+            {% include 'partials/product_pricing/widget/_package_title.html.twig' %}
+            <div class="price">
+                {% include 'partials/product_pricing/widget/_pricing_section.html.twig' %}
+            </div>
+        </div>
+        <div class="benefits-elevated">
+            <div class="package-title">
+                
+                {% include 'partials/product_pricing/widget/_benefits.html.twig' %}
+            </div>
+            {% include 'partials/product_pricing/widget/_signup_btn.html.twig' %}
+        </div>
+    </div>
+    
+</div>
+{# <script>
+   // Embed the product data as a JSON object
+   var output = {{ product| json_encode | raw }};
+   console.log('Product', output);
+</script> #}

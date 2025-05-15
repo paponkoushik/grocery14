@@ -1,0 +1,63 @@
+{% set links = config.site.footer.links %}
+{% set landingLinks = links[:2] %}
+{% set privacyLinks = links[2:4] %}
+{% set ploicyLinks = links[2:] %}
+{% set homepage = grav.pages.find('/') %}
+{% set homepage_content = homepage.header.footer_content %}
+{% set footer_desc = homepage.header.footer.top_brief.translatable %}
+
+
+{% for module in homepage.children %}
+    {% if module.slug == '_text-left' %}
+        {{ module.content|raw }}
+    {% endif %}
+{% endfor %}
+
+<footer>
+    <div class="footer-main slide-up">
+        <div class="container footer-logo-container">
+            <div class="footer-logo-top">
+                <div class="footer-logo-area">
+                    <div class="footer-logo">
+                        {% include 'widgets/logo.html.twig' with { position: 'footer' } %}
+                        <p class="branding-text service-description truncated-text">
+                            {{ footer_desc }}
+                        </p>
+                    </div>
+
+                    {% include 'widgets/footer-card.html.twig' %}
+                </div>
+
+                <div class="footer-menu-area">
+                    {% include 'widgets/footer-link.html.twig' %}
+{#                    {% include 'widgets/footer-privacy-link.html.twig' %}#}
+                    {% include 'widgets/footer-contact.html.twig' %}
+
+{#                    {% include 'widgets/footer-card.html.twig' %}#}
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copywrite">
+            <div class="container">
+                {% include 'widgets/footer-copyright.html.twig' %}
+{#                <div class="footer-menu">#}
+{#                    {% for link in privacyLinks %}#}
+{#                        {% set link_page = pages.find(link) %}#}
+{#                        {% if link_page %}#}
+{#                            <div class="menu-item">#}
+{#                                <a rel="noopener noreferrer" class="{{ footer_text_color }}"#}
+{#                                   href="{{ link_page.url|replace({'%20': ' ','%23': '#', '%3A': ':', '%2F': '/'}) }}">{{ link_page.menu }}</a>#}
+{#                            </div>#}
+{#                        {% endif %}#}
+{#                    {% endfor %}#}
+{#                </div>#}
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<style>
+    {% include 'partials/custom.css.twig' %}
+</style>

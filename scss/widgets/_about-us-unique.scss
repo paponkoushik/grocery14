@@ -1,0 +1,125 @@
+.about_us_unique_wrapper {
+  background: var(--color-white);
+  padding: 100px 0;
+
+  @include desktop-small {
+    padding: 80px 0;
+  }
+
+  .about_us_unique_content {
+    display: flex;
+    gap: 2rem;
+
+    @include desktop-small {
+      flex-direction: column-reverse;
+      gap: 30px;
+    }
+
+    .count_content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+
+
+      .count_row {
+        display: flex;
+        gap: 24px;
+        padding: 30px;
+        background: linear-gradient(90deg, #EEF4FF 0%, #D5E3FF 100%);
+        border-radius: 24px;
+
+        .count {
+          display: flex;
+          flex-direction: column;
+          gap: 19px;
+          justify-content: space-between;
+
+          .count_title {
+            font-size: 30px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 38px;
+            color: var(--color-text-dark);
+          }
+
+          .count_details {
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 28px;
+            color: var(--color-text-light);
+          }
+        }
+      }
+
+      &.first-child {
+        .count_row {
+          &:last-child {
+            .count .count_details {
+              text-align: right;
+            }
+          }
+        }
+      }
+
+      &.last-child {
+        .count_row {
+          flex-direction: column;
+          padding: 40px;
+          gap: 40px;
+
+          .count {
+            flex-direction: row;
+            gap: 40px;
+            justify-content: start;
+
+            .count_title, .count_details {
+              flex: 1;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .count_row {
+          flex-direction: column !important;
+          align-items: center !important;;
+          padding: 20px !important;;
+          gap: 30px !important;;
+
+          .count {
+            flex-direction: column !important;;
+            gap: 40px !important;;
+            justify-content: start !important;
+            width: 100%;
+          }
+
+          .count_details {
+            text-align: left !important;
+          }
+        }
+      }
+    }
+
+    .count_row {
+      .img-desktop {
+        display: block;
+
+        @include desktop-small {
+          display: none;
+          max-width: 100%;
+        }
+      }
+
+      .img-mobile {
+        display: none;
+
+        @include desktop-small {
+          display: block;
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

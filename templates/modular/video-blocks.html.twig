@@ -1,0 +1,140 @@
+{% extends 'partials/variables.html.twig' %}
+{% set module = page.header.module %}
+{% set bg = page.media[page.header.module.feature_bg] %}
+
+
+{% block render_block %}
+    <div class="video-section" style="background-image: url('{{ bg.url }}')">
+        <div class="container">
+            <div class="feature-wrapper">
+            {% if module.title %}
+                <div class="features-content-wrapper">
+                    <h4 class="feature-title">{{ module.title.translatable }}</h4>
+                </div>
+            {% endif %}
+                <div class="video-container">
+                    <video
+                            class="lazy-video desktop-video"
+                            width="100%"
+                            preload="none"
+                            poster="{{ url('theme://images/video_thumbnail.webp') }}"
+                            data-src="{{ url('theme://images/video.mp4') }}">
+                    </video>
+                    <video
+                            class="lazy-video mobile-video"
+                            width="100%"
+                            preload="none"
+                            poster="{{ url('theme://images/video_thumbnail_mobile.webp') }}"
+                            data-src="{{ url('theme://images/video.mp4') }}">
+                    </video>
+                    <button class="play-button">
+                        <span class="play-button-inside">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_819_12748)">
+                                    <path d="M5.10545 0.529181C2.94172 -0.711968 1.1875 0.304796 1.1875 2.79837V21.1999C1.1875 23.6959 2.94172 24.7114 5.10545 23.4714L21.1893 14.2474C23.3538 13.0059 23.3538 10.9943 21.1893 9.753L5.10545 0.529181Z" fill="#501F6E"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_819_12748">
+                                        <rect width="24" height="24" fill="white"/>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const playButtons = document.querySelectorAll('.play-button');
+
+        function handleVideoDisplay() {
+            const isMobile = window.innerWidth <= 560;
+            const desktopVideos = document.querySelectorAll('.desktop-video');
+            const mobileVideos = document.querySelectorAll('.mobile-video');
+
+            desktopVideos.forEach(video => {
+                video.style.display = isMobile ? 'none' : 'block';
+            });
+
+            mobileVideos.forEach(video => {
+                video.style.display = isMobile ? 'block' : 'none';
+            });
+        }
+
+        handleVideoDisplay();
+        window.addEventListener('resize', handleVideoDisplay);
+
+        playButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const videoContainer = this.parentElement;
+                const video = getVisibleVideo(videoContainer);
+
+                if (!video.src && video.dataset.src) {
+                    video.src = video.dataset.src;
+                    video.load();
+                }
+
+                video.removeAttribute('poster');
+                video.play()
+                    .then(() => {
+                        this.style.display = 'none';
+                    })
+                    .catch(error => {
+                        console.error('Error playing video:', error);
+                    });
+            });
+        });
+
+        function getVisibleVideo(container) {
+            const desktopVideo = container.querySelector('.desktop-video');
+            const mobileVideo = container.querySelector('.mobile-video');
+
+            if (window.getComputedStyle(desktopVideo).display !== 'none') {
+                return desktopVideo;
+            } else {
+                return mobileVideo;
+            }
+        }
+
+        const allVideos = document.querySelectorAll('.lazy-video');
+
+        allVideos.forEach(video => {
+            const container = video.closest('.video-container');
+            const playButton = container.querySelector('.play-button');
+
+            video.addEventListener('mouseenter', () => {
+                if (!video.paused) {
+                    video.style.cursor = 'pointer';
+                }
+            });
+
+            video.addEventListener('mouseleave', () => {
+                video.style.cursor = 'default';
+            });
+
+            video.addEventListener('click', () => {
+                if (!video.paused) {
+                    video.pause();
+                }
+            });
+
+            video.addEventListener('play', () => {
+                if (playButton) {
+                    playButton.style.display = 'none';
+                }
+            });
+
+            video.addEventListener('pause', () => {
+                if (playButton) {
+                    {# playButton.style.display = 'block'; #}
+                    playButton.style.removeProperty('display');
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock %}
