@@ -1,338 +1,155 @@
-.why_choose {
+.why-choose-section {
   display: flex;
-  padding: 60px 0;
-  flex-direction: column;
-  align-items: center;
-  gap: 60px;
-  align-self: stretch;
-  background-color: var(--color-gray);
-  position: relative;
+  padding: 160px 0 ;
+  background: var(--bg-body);
 
   @include desktop-small {
-    padding: 40px 0;
-    row-gap: 34px;
+    padding: 80px 0;
+    row-gap: 2.625rem;
   }
 
-  .container {
-    max-width: 1140px;
-    @include padding(padding-lg);
+  .why_choose_wrapper {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    gap: 66px;
+
+    @include desktop-lg {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+    }
 
     @include desktop-small {
-      @include padding(padding-sm);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
     }
-  }
 
-  .why_choose_header {
-    display: flex;
-    // flex-direction: column;
-    justify-content: center;
-    // text-align: center;
-    // align-items: center;
-    // gap: 24px;
+    .why_choose_img {
+      // display: flex;
+      // align-items: end;
+      // gap: 10px;
+      // width: 40%;
 
-    // @include desktop-small {
-    //   width: 100%;
-    //   gap: 24px;
-    // }
-
-
-    .block-title {
-      max-width: 457px;
-      width: 100%;
-      text-align: center;
-
-      @include typography(display-lg, semibold);
-      // opacity: 0;
-      font-family: var(--secondary-font);
-      color: var(--color-text-dark);
-
-      @include desktop-small {
-        @include typography(display-md, bold);
-      }
-
-      // span{
-      //   font-family: var(--secondary-font);
-      //   color: var(--color-primary);
-      //   @include typography(display-lg, bold);
-
-      //   @include desktop-small {
-      //     @include typography(display-md, bold);
-      //   }
+      // @include desktop-small {
+      //   width: 100%;
       // }
+
+      img {
+        width: 100%;
+        max-width: 498px;
+        // @include desktop-small {
+        //   text-align: center;
+        // }
+      }
+   
     }
 
-    .description{
+    .why_choose_content_wrapper {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
       gap: 1.5rem;
       max-width: 716px;
       width: 100%;
 
-      .why_choose_description {
-        // opacity: 0;
-        p {
-          color: var(--color-text-light);
-          @include typography(text-xl, regular);
-          @include desktop-small{
-            @include typography(text-lg, regular);
-          }
+      @include desktop-small {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%
+      }
+
+      .title {
+        @include typography(display-lg, bold);
+        font-family: var(--secondary-font);
+        color: var(--color-text);
+
+        @include desktop-small {
+          @include typography(display-md, bold);
         }
       }
 
-    }
-
-    
-  }
-
-  .button_choose_contents {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
-
-    .top_contents {
-      border-radius: 20px;
-      border: 1px solid var(--color-secondary);
-      background: var(--color-white);
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      gap: 16px;
-      width: 100%;
-      @include desktop-small {
-        flex-direction: column-reverse;
-        padding: 34px 22px 0;
-        justify-content: center;
-      }
-
-      img {
-        max-width: 370px;
-        width: 100%;
-      }
-      .right {
+      .description{
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        align-items: flex-start;
+        gap: 1.5rem;
 
-        h4 {
-          font-family: var(--secondary-font);
-          color: var(--color-text-light);
-          @include typography (display-md, medium);
-          max-width: 445px;
+        p {
+          color: var(--color-text);
+          @include typography(text-xl, regular);
+          
+
+          // @include mobile{
+          //   @include typography(text-lg, regular);
+          //   // margin-bottom: 36px;
+          // }
+        }
+
+      }
+
+      .why-choose-items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 36px;
+        margin-top: 29px;
+        // max-width: 664px;
+
+        @include desktop-small {
+          gap: 30px;
+          margin-top: 36px;
+        }
+
+        .item {
+          // width: 47%;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          text-align: left;
+          justify-content: center;
 
           @include desktop-small {
-            @include typography (display-sm, medium);
-          }
-        }
-        h5 {
-          border-radius: 32px;
-          color: var(--color-white);
-          background: var(--color-Accent);
-          @include typography (text-lg, bold);
-
-          display: flex;
-          gap: 10px;
-          width: fit-content;
-          padding: 8px 10px;
-          align-items: center;
-        }
-      }
-    }
-    .button {
-      width: fit-content;
-      padding: 13px 22px;
-      margin-top: 16px;
-      @include typography (text-md, bold)
-    }
-  }
-
-  .why_choose_container {
-    position: relative;
-    display: flex;
-    // flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.25rem;
-    // background: var(--feature-bg-container);
-    overflow: hidden;
-    width: 100%;
-
-    @include desktop-small {
-      flex-direction: column;
-    }
-
-    .why_choose_card {
-      // flex: 33.33%;
-      display: flex;
-      flex: 1;
-      // flex-direction: column;
-      align-items: flex-start;
-      gap: 1.25rem;
-      
-      cursor: pointer;
-      // border-radius: 16px;
-      align-self: stretch;
-      // opacity: 0;
-      transition: transform 0.3s ease;
-      border-radius: 20px;
-
-      background: var(--color-white);
-      border: 1px solid var(--color-tertiary);
-
-      &:last-child {
-        border: 1px solid rgba(0, 0, 0, 0.06);
-        background: var(--color-Accent);
-      }
-
-      @include desktop-small {
-        width: 100%;
-        flex-direction: column;
-      }
-
-      .img_out{
-        width: 100%;
-        flex: 60%;
-        img{
-          width: 100%;
-        }
-      }
-
-      .why_choose_contents{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        align-self: stretch;
-        position: relative;
-        justify-content: space-between;
-        padding: 54px 40px 0;
-        border-radius: 20px;
-        width: 100%;
-        gap: 12px;
-
-
-        
-
-        @include desktop-small {
-          // flex-direction: column;
-          align-items: center;
-          width: 100%;
-        }
-
-        .img_in {
-          overflow: hidden;
-          // border-radius: 16px;
-          // width: 100%;
-
-          @include mobile {
             width: 100%;
-            margin-bottom: -7px;
           }
 
-          img {
-            width: 100%;
-            height: 100%;
-          }
-        }
-
-        .why_choose_content {
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-          // justify-content: center;
-          align-items: flex-start;
-          // text-align: center;
-          width: 100%;
-
-          // @include tablet{
-          //   gap: 24px;
-          // }
-
-          .icon_head{
-            display: flex;
-            // flex-direction: column;
-            gap: 12px;
-            // justify-content: flex-start;
-            // align-items: flex-start;
-            // text-align: left;
-            width: 100%;
-            // justify-content: center;
-            flex-direction: column;
-
-            // &:nth-child(2){
-            //   flex-direction: row;
-            // }
-
-            .icon{
-              width: 42px;
-              height: auto;
-            }
-            .head {
-              @include typography(display-lg, medium);
-              color: var(--color-text-light);
-              font-family: var(--secondary-font);
-              @include desktop-small {
-                @include typography(display-sm, semibold);
-              }
+          span {
+            color: var(--color-text);
+            max-width: 230px;
+            @include typography(text-md, semibold);
+            @include mobile {
+              max-width: 213px;
             }
           }
-        
-        
-          .desc {
-            @include typography(text-xl, regular);
-            color: var(--color-text-dark);
-            // text-align: center;
+
+          &:nth-child(2), &:nth-child(4) {
+            margin-left: 30px;
             @include desktop-small {
-              @include typography(text-md, regular);
+              margin-left: 0;
+            }
+            
+          }
+          @include desktop-small {
+            // margin-left: 27px;
+
+            &:nth-child(1) {
+              order: 1;
+            }
+            &:nth-child(2) {
+              order: 3;
+            }
+            &:nth-child(3) {
+              order: 2;
+            }
+            &:nth-child(4) {
+              order: 4;
             }
           }
         }
-
-      }
-
-
-      &:nth-child(1),&:nth-child(3) {
-        flex-direction: row-reverse;
-
-        @include desktop-small {
-          flex-direction: column-reverse;
-        }
-      }
-
-      &:nth-child(2){
-
-        @include desktop-small {
-          flex-direction: column-reverse;
-        }
-        // .why_choose_contents {
-        //   .img_in{
-        //     height: 406px;
-        //     @include desktop-small{
-        //       height: auto;
-        //     }
-           
-        //   }
-           
-        //   .why_choose_content{
-        //     gap: 42px;
-
-        //     .icon_head{
-        //       flex-direction: row;
-        //       @include desktop-small{
-        //         flex-direction: column;
-        //       }
-
-        //     }
-        //   }
-        // }
-          
-      }
-
-      &:nth-child(3){
-        // flex-direction: column-reverse;
       }
     }
-
 
   }
 
