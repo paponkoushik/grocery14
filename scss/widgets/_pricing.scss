@@ -238,7 +238,7 @@
           .price {
             color: var(--color-white) !important;
             // font-family: var(--secondary-font);
-            @include typography("display-md", bold);
+            @include typography("display-md", regular);
           }
 
           .billed-days {
@@ -278,12 +278,14 @@
         }
 
         .billed-section {
-          padding-bottom: 40px;
+          padding-bottom: 54px;
           color: var(--color-white) !important;
+          @include typography(text-xl, bold);
+          gap: 4px !important;
 
           .trial-days,
           .trial {
-            @include typography(text-xl, extra_bold);
+            @include typography(text-xl, bold);
 
             text-transform: uppercase;
           }
