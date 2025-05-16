@@ -18,6 +18,7 @@
   background-color: var(--bg-body);
 
   @include desktop-small {
+    background-image: unset;
     padding: 60px 0;
   }
 

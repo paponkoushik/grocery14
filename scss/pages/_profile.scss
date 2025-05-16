@@ -101,11 +101,11 @@
     display: flex;
     
     gap: 66px;
-    align-self: stretch;
+    // align-self: stretch;
     color: var(--profile-text);
     // max-width: 1344px;
     // margin: 80px auto;
-    align-items: stretch;
+    align-items: flex-start;
     @include desktop-small {
       flex-direction: column;
       // padding: 2rem 1rem;
