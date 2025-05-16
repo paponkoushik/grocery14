@@ -220,36 +220,33 @@ textarea {
   border: none;
   width: 100%;
   display: flex;
-  padding: 12px 0;
+  padding: 1rem 1.25rem;
   flex-direction: column;
   align-items: flex-start;
   align-self: stretch;
-  border-radius: 0;
+  border-radius: var(--border-radius);
   @include typography(base);
-  border-bottom: 1px solid var(--Webshop-5-color-text-dark, #0D0D0D);
+  border: 1px solid var(--color-light-shade);
   transition: box-shadow 0.3s ease-in-out;
   /* Add a smooth transition effect */
-  background: var(--white, #fff);
-  color: rgba(14, 14, 14, 0.708);
+  background: rgba(255, 255, 255, 0.10);;
+
+  color: var(--color-text);
   line-height: 1.4rem;
 
   &:hover {
-    //box-shadow: 0px 4px 16px 0px rgba(51, 51, 51, 0.08), 0px 4px 4px 0px rgba(51, 51, 51, 0.04);
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: none;
-  }
-
-  @include mobile{
-    padding: 10px 0;
+    box-shadow: 0px 4px 16px 0px rgba(51, 51, 51, 0.08), 0px 4px 4px 0px rgba(51, 51, 51, 0.04);
   }
 }
 
 input::placeholder,
 textarea::placeholder {
   color: rgba(var(--color-black), 0.5);
+  // color: rgba(var(--color-black), 0.5);
+}
+
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+  transition: background-color 500000s ease-in-out 0s, color 5000s ease-in-out 0s !important;
 }
 
 /* Define the slide-up animation */
