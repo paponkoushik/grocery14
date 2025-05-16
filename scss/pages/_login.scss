@@ -5,9 +5,9 @@
 }
 
 .login-section, .forgot-section {
-  border-radius: 8px;
-  background: var(--color-gray);
-  padding: 60px 0;
+  // border-radius: 8px;
+  background: var(--bg-body);
+  padding: 240px 0 100px;
 
   @include desktop-small {
     padding: 40px 0 40px 0;
@@ -33,22 +33,43 @@
           $input_styles: (border: 1px solid var(--login-text), background: transparent, text: var(--login-text)),
   );
 
-  .whq-card-container{
-    gap: 0 !important;
-  }
+  // .whq-card-container{
+  //   gap: 60px !important;
+  // }
 
   #grav-login {
+    .form-field{
+      &::before{
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+        margin-bottom: 10px;
+        display: block;
+        color: var(--color-text);
+
+        @include mobile{
+          // font-size: 16px;
+          // font-style: normal;
+          // font-weight: 400;
+          // line-height: 24px;
+          // color: var(--colo-text);
+        }
+      }
+    }
+
+
     .form-field:first-child {
       &:before {
         display: block;
-        @include typography(text-md, semibold);
+        // @include typography(text-md, semibold);
       }
     }
 
     .form-field:nth-child(2) {
       &:before {
         display: block;
-        @include typography(text-md, semibold);
+        // @include typography(text-md, semibold);
 
       }
     }
@@ -65,36 +86,55 @@
       display: flex;
       justify-content: space-between;
 
-      @include md-mobile {
+      @include mobile {
         width: 100%;
         display: block;
+
       }
 
       .form-input-wrapper {
         display: flex;
         align-items: center;
 
+        @include mobile {
+          justify-content: center;
+        }
+
         input[type="checkbox"] {
-          width: auto;
-          appearance: auto;
+          // width: auto;
+          appearance: none;
+          -webkit-appearance: none;
           display: inline-block;
           position: unset;
+
+          width: 16px;
+          height: 16px;
+          border-radius: 4px;
+          background-color: transparent;
+          border: 1px solid var(--color-white);
+
+          &:checked {
+            appearance: auto;
+          }
+
         }
 
         label {
-          font-size: 14px;
+
+          font-size: 20px;
           font-style: normal;
           font-weight: 400;
-          line-height: 20px;
-          color: var(--color-text-dark);
+          line-height: 30px;
+
+          color: var(--color-text);
           margin-left: 8px;
 
-          @include mobile{
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 20px;
-          }
+          // @include mobile{
+          //   font-size: 14px;
+          //   font-style: normal;
+          //   font-weight: 400;
+          //   line-height: 20px;
+          // }
         }
       }
     }
@@ -102,28 +142,30 @@
     .form-action-wrapper {
       display: flex;
       flex-direction: column-reverse;
-      gap: 32px;
+      gap: 60px;
 
 
       .secondary {
         max-width: 300px;
         align-self: end;
-        margin-top: -20px;
+        margin-top: -28px;
         text-decoration: none;
         padding: 0;
-        font-size: 14px;
+        font-size: 20px;
         font-style: normal;
         font-weight: 400;
-        line-height: 20px;
-        color: var(--color-primary);
+        line-height: 30px;
+        color: var(--color-text);
         background-color: transparent;
 
         @include mobile {
-          margin-top: 1rem;
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 20px;
+          // margin-top: 1rem;
+          // font-size: 14px;
+          // font-style: normal;
+          // font-weight: 400;
+          // line-height: 20px;
+          margin-top: 10px;
+          align-self: center;
         }
 
         &.button {
@@ -141,7 +183,9 @@
       }
 
       .primary {
-        width: 100% !important;
+        width: fit-content !important;
+        padding: 12px 60px;
+        
         svg {
           display: none;
         }

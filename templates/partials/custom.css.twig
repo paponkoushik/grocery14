@@ -5,3 +5,20 @@
 .content-section-profile {
     background-color: var(--bg-body) !important;
 }
+
+.login-form {
+    .form-field {
+        &:first-child {
+            &::before {
+                content: "{{ 'METRICALO.USERNAME'|t }}";
+                
+            }
+        }
+
+        &:nth-child(2) {
+            &::before {
+                content: "{{ 'METRICALO.PASSWORD'|t }}";
+            }
+        }
+    }
+}
