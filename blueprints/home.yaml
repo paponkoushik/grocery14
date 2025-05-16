@@ -110,3 +110,29 @@ form:
                   type: text
                   label: Title 2
                   classess: 'translatable'
+                  
+            header.contact_blocks_section:
+              ordering@: 7
+              type: section
+              title: Contact blocks
+              underline: false
+              label: false
+              fields:
+
+                header.modules:
+                  .title.translatable:
+                    type: text
+                    label: Section Title
+                    classes: 'translatable'
+
+                header.contents:
+                  type: list
+                  fields:
+                    .title.translatable:
+                      type: text
+                      label: Title
+                      classes: 'translatable'
+                    .description.translatable:
+                      type: textarea
+                      label: Description
+                      classes: 'translatable'

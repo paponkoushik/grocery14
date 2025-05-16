@@ -16,23 +16,25 @@
   margin: 0 auto;
   
   @include desktop-small {
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
+    gap: 40px;
   }
 
   .contact-left {
     display: flex;
     flex-direction: column;
-    gap: 1.125rem;
+    gap: 2.5rem;
     font-family: var(--secondary-font);
     color: var(--color-text-dark);
     align-items: center;
     // flex: 40%;
     max-width: 525px;
+    align-items: stretch;
 
-    @include desktop-small {
-      display: none;
-    }
+    // @include desktop-small {
+    //   display: none;
+    // }
 
   }
 }
@@ -247,14 +249,9 @@
             border-radius: 8px;
           }
         }
-        // .form-actions {
-        //   display: flex;
-        //   justify-content: flex-end;
-
-        //   @include desktop-small {
-        //     justify-content: center;
-        //   }
-        // }
+        .form-actions {
+          margin-top: 50px;
+        }
 
         button{
           padding: 12px 20px;

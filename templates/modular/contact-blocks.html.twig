@@ -26,7 +26,7 @@
     } %} #}
     
     <section class="contact-block-section {{ module.classes }}">
-        {# {% include 'widgets/contact-section.html.twig' %} #}
+        
         {# <div class="container">
 
             <div class="contact-info-wrapper">
@@ -54,7 +54,7 @@
                     {# <h3>{{ module.sub_title.translatable|striptags('<span>')|raw }}</h3>
                     <h1>{{ module.title.translatable|striptags('<span>')|raw }}</h1> #}
                     {# <img src="{{ url('theme://images/form-image.png') }}"/> #}
-
+                    {% include 'widgets/contact-section.html.twig' %}
                     <div class="paragraph-image">
                         <img class="" src="{{ image_left.url }}" alt="icon"/>
                     </div>
