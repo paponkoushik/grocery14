@@ -6,50 +6,63 @@ form:
     tabs:
       fields:
         content:
-          type: tab
-          title: Content
-
           fields:
-            header.contents.header_title.translatable:
-              type: text
-              label: Header Title
-              classes: 'translatable'
 
-            header.contents.header_description.translatable:
-              type: textarea
-              label: Header Description
-              classes: 'translatable'
- 
-            header.about_us_content_section:
+            module_section:
+              ordering@: 3
               type: section
-              title: About us List
+              title: Module blocks
               underline: true
-              label: true
               fields:
-                header.about_us_content:
+                header.module.title.translatable:
+                  type: text
+                  label: Title
+                  classes: 'translatable'
+
+                header.module.buttons:
+                  type: list
+                  label: Aboutus Buttons
+                  style: vertical
+                  fields:
+                    .text.translatable:
+                      type: text
+                      label: Button Text
+                      classes: 'translatable'
+                    .link:
+                      type: text
+                      label: Button Link
+               
+                  
+
+
+            header.about_us_unique_section:
+              ordering@: 4
+              type: section
+              title: About Us Unique
+              underline: false
+              label: false
+              fields:
+                header.about_us_unique:
                   type: list
                   fields:
-                    .icon:
-                      type: pagemediaselect
-                      label: Icon
-                      preview_images: true
-                    .image:
-                      type: pagemediaselect
-                      label: Image
-                      preview_images: true
-                    .count.translatable:
-                      type: text
-                      label: Count
-                      classes: 'translatable'
                     .title.translatable:
                       type: text
                       label: Title
                       classes: 'translatable'
-                    .brief.translatable:
+                    .description.translatable:
                       type: textarea
-                      label: Brief
+                      label: Description
                       classes: 'translatable'
-   
-
+                    .icon:
+                      type: pagemediaselect
+                      label: icon
+                    .image_inside:
+                      type: pagemediaselect
+                      label: Image Inside
+                    .image_outside:
+                      type: pagemediaselect
+                      label: Image Outside
             header.media_order:
-              ordering@: 99
+                ordering@: 99
+
+

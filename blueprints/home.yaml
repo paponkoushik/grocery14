@@ -26,29 +26,12 @@ form:
               underline: true
 
               fields:
-                header.footer.top_title.translatable:
-                  type: text
-                  label: Footer Top Title
-                  classess: 'translatable'
-
-                header.footer.top_brief.translatable:
-                  type: text
-                  label: Footer Top Brief
-                  classess: 'translatable'
-
-                header.footer.top_btn_text.translatable:
-                  type: text
-                  label: Footer Top BTN Text
-                  classess: 'translatable'
 
                 header.footer.branding_text.translatable:
                   type: text
                   label: Branding Text
                   classess: 'translatable'
 
-                header.footer.watermark:
-                  type: text
-                  label: Watermark Text
             pricing_section:
               ordering@: 3
               type: section
@@ -78,6 +61,7 @@ form:
                   type: text
                   label: Description
                   classess: 'translatable'
+                  
             forgot_section:
               ordering@: 3
               type: section
@@ -109,6 +93,7 @@ form:
                   type: text
                   label: Description
                   classess: 'translatable'
+
             unsub_section:
               ordering@: 3
               type: section
@@ -125,6 +110,7 @@ form:
                   type: text
                   label: Description
                   classess: 'translatable'
+
             profile_section:
               ordering@: 3
               type: section

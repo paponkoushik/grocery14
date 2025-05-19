@@ -86,7 +86,7 @@
       gap: 130px;
 
       @include desktop-small {
-        gap: 60px;
+        gap: 40px;
         flex-direction: column;
       }
 
@@ -107,7 +107,7 @@
         flex-basis: 45%;
 
         @include desktop-small {
-          gap: 20px;
+          gap: 26px;
           flex-direction: column;
         }
 
@@ -127,6 +127,20 @@
           }
         }
 
+        .footer-cards {
+          display: none;
+          
+
+          @include desktop-small{
+            display: flex;
+            gap: 24px;
+          }
+
+          img {
+            width: 60px;
+          }
+        }
+
         .footer-bottom {
           display: flex;
           justify-content: center;
@@ -138,6 +152,7 @@
           @include desktop-small {
             margin-top: 0;
             justify-content: start;
+            display: none;
           }
 
           @include mobile {
@@ -184,7 +199,7 @@
 
             @include desktop-small {
               @include typography(text-md, regular);
-              padding: 9px 0;
+              // padding: 9px 0;
             }
 
             color: var(--panel-footer-text) !important;
@@ -262,6 +277,10 @@
             display: flex;
             gap: 24px;
 
+            @include desktop-small{
+              display: none;
+            }
+
             img {
               width: 60px;
             }
@@ -289,16 +308,35 @@
       padding: 138px 2rem 36px 2rem;
 
       @include desktop-small {
-        flex-wrap: wrap;
-        flex-direction: column-reverse;
-        padding: 40px 1rem;
-        background-image: unset;
+ 
+        padding: 50px 1rem 100px;
+        background-position: bottom;
+        background-size: 91% 23%;
         gap: 0;
       }
 
-      @include mobile {
-        flex-direction: column-reverse;
-        gap: 10px;
+
+      .footer-bottom {
+        display: none;
+       
+
+        @include desktop-small {
+          display: flex;
+          margin-top: 0;
+          justify-content: start;
+          gap: 0.625rem;
+          align-self: stretch;
+          background: var(--panel-footer-bg);
+          color: var(--panel-footer-text);
+        }
+
+        
+
+        p {
+          color: var(--color-white);
+          @include typography(text-md, regular);
+          text-align: left;
+        }
       }
     }
 

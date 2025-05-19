@@ -5,46 +5,35 @@
 <div class="{{ max_width }} {{ section_padding }} flex-1 w-full py-24 no-hero-header">
     <div class="no-hero slide-up container">
         <div class="no-hero-title-wrapper">
-            <div class="no-hero-content">
-                {% if _title != '' %}
-                    <h1 class="display-1 mb-3">{{ _title | raw }}</h1>
-                {% else %}
-                    <h1 class="display-1 mb-3">{{ title | raw }}</h1>
-                {% endif %}
 
-                <nav class="d-inline-block no-hero-breadcrumb" aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        {% for index, link in links %}
-                            {% set last = index + 1 == links|length %}
-                            <li class="breadcrumb-item {{ breadcrumb_text_color }} {{ last ? 'active' : '' }}">
-                                {% if link.url %}
-                                    <a href="{{ link.url }}" class="{{ breadcrumb_text_color }}">{{ link.title }}</a>
-                                {% else %}
-                                    {{ link.title }}
-                                {% endif %}
-                            </li>
+            {% if _title != '' %}
+                <h1 class="display-1 mb-3">{{ _title | raw }}</h1>
+            {% else %}
+                <h1 class="display-1 mb-3">{{ title | raw }}</h1>
+            {% endif %}
 
-                            {% if index + 1 != links|length %}
-                                <li class="breadcrumb-item arry {{ breadcrumb_text_color }}">
-                                    /
-                                </li>
+            <nav class="d-inline-block no-hero-breadcrumb" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    {% for index, link in links %}
+                        {% set last = index + 1 == links|length %}
+                        <li class="breadcrumb-item {{ breadcrumb_text_color }} {{ last ? 'active' : '' }}">
+                            {% if link.url %}
+                                <a href="{{ link.url }}" class="{{ breadcrumb_text_color }}">{{ link.title }}</a>
+                            {% else %}
+                                {{ link.title }}
                             {% endif %}
-                        {% endfor %}
-                    </ol>
-                </nav>
+                        </li>
 
-                {% if noHeroContent.button_text.translatable != "" %}
-                    <a class="button"
-                       href="/{{ grav.language.getActive }}{{ noHeroContent.button_url }}">{{ noHeroContent.button_text.translatable }}</a>
-                {% endif %}
-            </div>
-            <div class="no-hero-image">
-                {% set image = page.media[noHeroContent.image] %}
-                {% set image_url = image.url != "" ? image.url : url("theme://images/terms.png") %}
-                {% if image_url != "" %}
-                    <img src="{{ image_url }}" alt="">
-                {% endif %}
-            </div>
+                        {% if index + 1 != links|length %}
+                            <li class="breadcrumb-item arry {{ breadcrumb_text_color }}">
+                                >
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+            </nav>
+        
+
         </div>
     </div>
 </div>
