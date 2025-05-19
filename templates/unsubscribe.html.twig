@@ -5,7 +5,7 @@
 {% set unsub_content = homepage.header.unsub %}
 
 {% block article %}
-    {% set module = page.header %}
+    {# {% set module = page.header %}
         {% include 'partials/no-hero-header.html.twig' with {
             'title': "METRICALO.CANCEL_SUBSCRIPTION"|t,
             'links': [
@@ -17,7 +17,7 @@
                     'title': "METRICALO.CANCEL_SUBSCRIPTION"|t
                 }
             ]
-        } %}
+        } %} #}
 
     <div class="unsubscribe-section">
     <div class="container ">
@@ -35,48 +35,40 @@
                 {% if unsub_content.dec.translatable != '' %}
                     <p>{{ unsub_content.dec.translatable | raw }}</p>
                 {% endif %}
-                {% include "forms/form.html.twig" with {form: forms('unsubscribe'), action: '#'} %}
-{#                <form name="unsubscribe" action="#" method="POST" id="unsubscribe" class=" ">#}
+                {# {% include "forms/form.html.twig" with {form: forms('unsubscribe'), action: '#'} %} #}
 
+                <form name="unsubscribe" action="#" method="POST" id="unsubscribe" class=" ">
+                <div class="form-field   ">
+                    <div class="form-label">
+                        <label class="inline">Email <span class="required">*</span></label>
+                    </div>
+                    <div class="form-data" data-grav-field="email" data-grav-disabled="" data-grav-default="null">
+                        <div class="form-input-wrapper ">
+                            <input name="data[email]" value="" type="email" class="form-input " required="required">
+                        </div>
+                    </div>
+                </div>
 
-{#                    <div class="form-field   ">#}
-{#                        <div class="form-label"><label class="inline">Email                  <span class="required">*</span></label>#}
-{#                        </div>#}
-{#                        <div class="form-data" data-grav-field="email" data-grav-disabled="" data-grav-default="null">#}
-{#                            <div class="form-input-wrapper ">#}
-{#                                <input name="data[email]" value="" type="email" class="form-input " required="required">#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
+                <div class="form-field   ">
+                    <div class="form-label">
+                        <label class="inline">Last 4 digits of your credit card <span class="required">*</span></label>
+                    </div>
+                    <div class="form-data" data-grav-field="text" data-grav-disabled="" data-grav-default="null">
+                        <div class="form-input-wrapper ">
+                            <input name="data[last_four]" value="" type="text" class="form-input " required="required" title="Please enter valid Last 4 Digit of your card" pattern="\d{4}">
+                        </div>
+                    </div>
+                </div>
 
-{#                    <div class="form-field   ">#}
-{#                        <div class="form-label"><label class="inline">Last 4 digits of your credit card                  <span class="required">*</span></label>#}
-{#                        </div>#}
-{#                        <div class="form-data" data-grav-field="text" data-grav-disabled="" data-grav-default="null">#}
-{#                            <div class="form-input-wrapper ">#}
-{#                                <input name="data[last_four]" value="" type="text" class="form-input " required="required" title="Please enter valid Last 4 Digit of your card" pattern="\d{4}">#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
+                <input type="hidden" name="__form-name__" value="unsubscribe">
+                <input type="hidden" name="__unique_form_id__" value="rlxszfykbqigxptjkcvh">
+                <input type="hidden" name="form-nonce" value="ae8a959991e248a584be3cc5353c5a7b">
 
+                <div class="form-actions">
+                    <button type="submit" onclick="return validateForm()" class="button button primary">Cancel subscription</button>
+                </div>
 
-{#                    <input type="hidden" name="__form-name__" value="unsubscribe">#}
-{#                    <input type="hidden" name="__unique_form_id__" value="fysyammbkuq9nhudkth3">#}
-{#                    <input type="hidden" name="form-nonce" value="637bc38f36d377251577ebe813e02d5f">#}
-
-
-{#                    <div class="form-actions">#}
-
-
-
-
-
-{#                        <button type="submit" onclick="return validateForm()" class="button button primary">Cancel subscription</button>#}
-
-
-{#                    </div>#}
-
-{#                </form>#}
+            </form>
             {% endblock %}
         {% endembed %}
     </div>

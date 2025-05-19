@@ -1,9 +1,10 @@
 .cancel-membership-section, .unsubscribe-section {
-  background: var(--color-gray);
-  padding: 60px 0 0 0;
+  background: var(--bg-body);
+  padding: 240px 0 100px;
 
   @include desktop-small {
-    padding: 40px 0 0 0;
+    padding: 40px 0 40px 0;
+    margin-top: $header-gap;
   }
 
   @include whq-card-form(
@@ -35,24 +36,26 @@
       }
 
       .form-actions{
-        margin-top: calc(57px - 18px);
+        margin-top: 44px;
 
         @include desktop-small {
-          margin-top: calc(40px - 18px);
+          // margin-top: calc(40px - 18px);
+          margin-top: 34px;
         }
       }
     }
 
     button{
       background: var(--Warning, #FC2F19) !important;
-      width: 100%;
+      width: fit-content !important;
+      padding: 12px 24px !important ;
     }
 
-    .whq-card-content{
-      h3{
-        max-width: 367px;
-      }
-    }
+    // .whq-card-content{
+    //   h3{
+    //     max-width: 367px;
+    //   }
+    // }
   }
 }
 

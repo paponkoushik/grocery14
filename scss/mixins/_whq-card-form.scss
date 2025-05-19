@@ -101,12 +101,12 @@ $spacing, $title_typography, $button_typography, $label_typography, $input_style
           line-height: 28px;
           color: var(--color-text);
 
-          @include mobile{
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 24px;
-          }
+          // @include mobile{
+          //   font-size: 16px;
+          //   font-style: normal;
+          //   font-weight: 400;
+          //   line-height: 24px;
+          // }
         }
 
         form {
@@ -127,7 +127,7 @@ $spacing, $title_typography, $button_typography, $label_typography, $input_style
                 font-style: normal;
                 font-weight: 400;
                 line-height: 30px;
-                color: var(--color-text-light);
+                color: var(--color-white);
               }
             }
 
@@ -188,12 +188,12 @@ $spacing, $title_typography, $button_typography, $label_typography, $input_style
               font-style: normal;
               font-weight: 700;
               line-height: normal;
-              padding: 10px 22px !important;
+              padding: 12px 24px !important;
               color: var(--color-white);
               background: var(--color-primary);
               border: none;
               width: 100%;
-              min-width: 180px;
+              min-width: 168px;
               margin: 0 auto;
               border-radius: 12px;
 
