@@ -4,25 +4,26 @@
   top: 0;
   left: 0;
   right: 0;
-  padding: 20px 0;
+  padding: 40px 0;
   z-index: 10;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.80);
   transition: background-color 0.3s, color 0.3s;
 
   @include desktop-small{
     padding: 20px 0;
-    background: var(--color-white);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.36);
+
   }
 
   &.sticky {
-    background-color: var(--color-secondary);
-    padding: 20px 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    // background-color: var(--color-secondary);
+    // padding: 20px 0;
+    // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 
-    @include desktop-small{
-      background: transparent;
-      box-shadow: none;
-    }
+    // @include desktop-small{
+    //   background: transparent;
+    //   box-shadow: none;
+    // }
 
     .header-wrapper{
       padding: 0;
@@ -30,12 +31,6 @@
       background: transparent;
       border-radius: 0;
 
-      @include desktop-small{
-        border-radius: 8px;
-        background: var(--color-white);
-        padding: 10px 16px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      }
     }
   }
 
@@ -88,15 +83,11 @@
     .menu {
       display: flex;
       align-items: center;
-      gap: 14px;
-      padding: 10px 24px;
-      border-radius: 32px;
-      background: var(--color-white);
-      margin-left: 100px;
-
-      @media (max-width: 1450px){
-        margin-left: 0;
-      }
+      gap: 60px;
+      padding: 20px 40px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.17);
+      border: 1px solid rgba(255, 255, 255, 0.36);
 
       @include desktop-small {
         display: none;
@@ -108,37 +99,24 @@
         justify-content: center;
         align-items: center;
 
-        @include desktop-small {
-          padding: 0.25rem 0.5rem;
-        }
-
-        @include desktop-lg {
-          padding: 0.25rem 0.2rem;
-        }
 
         .menu-item__link {
           text-decoration: none;
-          font-size: 18px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
-          color: var(--panel-header-text);
-          padding: 8px 20px;
+          @include typography(text-lg, medium);
+          color: var(--color-text);
           transition: all 0.3s ease-in-out;
           white-space: nowrap;
-          border-radius: 18px;
 
           &:hover {
             color: var(--color-white);
-            background-color: var(--color-primary);
-            border-radius: 18px;
+            background-color: transparent;
+
           }
         }
 
         &.active a {
-          color: var(--color-white);
-          background-color: var(--color-primary);
-          border-radius: 18px;
+          color: var(--color-text);
+          background-color: transparent;
           font-weight: 700;
         }
       }
@@ -149,12 +127,8 @@
       align-items: center;
       gap: 20px;
 
-      @include desktop-small {
-        gap: 0px;
-      }
 
       .btn {
-        border-radius: 30px;
         transition: 1s all;
         white-space: nowrap;
 
@@ -163,22 +137,19 @@
           transition: 2s all;
         }
 
-        @include typography(text-lg, 500);
+        @include typography(text-lg, medium);
 
         @include desktop-small {
           display: none;
-          padding: 10px 30px;
         }
+
       }
 
       .active-btn {
-        color: var(--color-white);
+        padding: 0;
         order: 2;
         background: unset;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 800;
-        line-height: normal;
+
 
         &:hover {
           background: unset;
@@ -187,17 +158,12 @@
       }
 
       .signup {
-        color: var(--color-primary);
-        border-radius: 34px;
-        background: var(--color-white);
+        border: 1px solid rgba(255, 255, 255, 0.36);
+        background: rgba(255, 255, 255, 0.17);
         padding: 12px 20px;
         order: 3;
         display: flex;
         align-items: center;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 800;
-        line-height: normal;
 
         @include desktop-small {
           display: none;
@@ -234,9 +200,9 @@
           }
 
           svg{
-            @include desktop-small{
-              filter: invert(1);
-            }
+            // @include desktop-small{
+            //   filter: invert(1);
+            // }
           }
         }
 
@@ -253,7 +219,7 @@
             background-position: center;
             height: 24px;
             width: 24px;
-            filter: invert(1);
+            // filter: invert(1);
           }
 
           @include desktop-small {
