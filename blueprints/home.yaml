@@ -93,6 +93,21 @@ form:
                 header.forgot.dec.translatable:
                   type: text
                   label: Description
+            change_password_section:
+              ordering@: 3
+              type: section
+              title: Change Password Page Content
+              underline: true
+
+              fields:
+                header.change_password.title.translatable:
+                  type: text
+                  label: Title
+                  classess: 'translatable'
+
+                header.change_password.dec.translatable:
+                  type: text
+                  label: Description
                   classess: 'translatable'
             unsub_section:
               ordering@: 3

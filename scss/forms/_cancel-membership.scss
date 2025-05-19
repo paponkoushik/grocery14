@@ -8,11 +8,14 @@
     top: calc(50% - 600px);
     max-width: 600px;
     width: 100%;
-    padding: 44px;
+    padding: 40px;
     margin: 60px auto;
+    border: 1px solid var(--color-light-shade);
+    border-radius: 24px;
 
     @include desktop-small{
       margin: 0 auto;
+      padding: 40px 16px;
     }
 
     .form-label {
@@ -20,7 +23,7 @@
     }
 
     label {
-      color: var(--color-text-light);
+      color: var(--color-text);
       font-size: 20px;
       font-style: normal;
       font-weight: 400;
@@ -44,9 +47,9 @@
       box-shadow: none;
     }
 
-    @include desktop-small {
-      padding: 40px 0;
-    }
+    // @include desktop-small {
+    //   padding: 40px 16px;
+    // }
 
     .form-actions {
       text-align: center;
@@ -55,8 +58,8 @@
 
       button {
         display: block;
-        width: 100%;
-        background: var(--color-primary);
+        width: fit-content;
+        background: var(--color-danger);
         color: var(--color-white);
         border: none;
 

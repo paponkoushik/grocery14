@@ -35,9 +35,9 @@
                 {% if unsub_content.dec.translatable != '' %}
                     <p>{{ unsub_content.dec.translatable | raw }}</p>
                 {% endif %}
-                {# {% include "forms/form.html.twig" with {form: forms('unsubscribe'), action: '#'} %} #}
+                {% include "forms/form.html.twig" with {form: forms('unsubscribe'), action: '#'} %}
 
-                <form name="unsubscribe" action="#" method="POST" id="unsubscribe" class=" ">
+                {# <form name="unsubscribe" action="#" method="POST" id="unsubscribe" class=" ">
                 <div class="form-field   ">
                     <div class="form-label">
                         <label class="inline">Email <span class="required">*</span></label>
@@ -68,7 +68,7 @@
                     <button type="submit" onclick="return validateForm()" class="button button primary">Cancel subscription</button>
                 </div>
 
-            </form>
+            </form> #}
             {% endblock %}
         {% endembed %}
     </div>

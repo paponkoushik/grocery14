@@ -4,7 +4,7 @@
 
   @include desktop-small {
     padding: 40px 0 40px 0;
-    margin-top: $header-gap;
+    margin-top: $header-gap-mobile;
   }
 
   @include whq-card-form(
@@ -25,7 +25,7 @@
 
     @include desktop-small {
       margin-bottom: 40px !important;
-      margin-top: $header-gap;
+      margin-top: $header-gap-mobile;
     }
 
     #unsubscribe {
@@ -46,7 +46,7 @@
     }
 
     button{
-      background: var(--Warning, #FC2F19) !important;
+      background: var(--color-danger) !important;
       width: fit-content !important;
       padding: 12px 24px !important ;
     }
