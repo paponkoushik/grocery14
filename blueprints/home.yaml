@@ -78,6 +78,22 @@ form:
                   type: text
                   label: Description
                   classess: 'translatable'
+            forgot_section:
+              ordering@: 3
+              type: section
+              title: Forgot Page Content
+              underline: true
+
+              fields:
+                header.forgot.title.translatable:
+                  type: text
+                  label: Title
+                  classess: 'translatable'
+
+                header.forgot.dec.translatable:
+                  type: text
+                  label: Description
+                  classess: 'translatable'
             unsub_section:
               ordering@: 3
               type: section
