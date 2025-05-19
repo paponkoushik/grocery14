@@ -1,11 +1,11 @@
 .feature-section {
-  padding: 42px 0 114px;
-  background: var(--color-secondary);
+  padding: 80px 0;
+  background: var(--bg-body);
   position: relative;
 
-  @include desktop-small {
-    padding: 100px 0;
-  }
+  // @include desktop-small {
+  //   padding: 100px 0;
+  // }
 
   .feature-wrapper {
     display: flex;
@@ -48,11 +48,16 @@
 
       @include desktop-small {
         flex-direction: column;
+        gap: 20px;
       }
 
       .features-img {
         max-width: 340px;
         width: 100%;
+
+        @include desktop-small{
+          display: none;
+        }
 
         img {
           width: 100%;
@@ -62,11 +67,11 @@
       .features-content-wrapper {
         display: flex;
         flex-direction: column;
-        gap: 30px;
+        gap: 20px;
 
-        @include desktop-small {
-          gap: 20px;
-        }
+        // @include desktop-small {
+        //   gap: 20px;
+        // }
 
         .feature-item {
           transition: 1s ease-in-out;
@@ -74,8 +79,14 @@
           flex-direction: column;
           gap: 14px;
           padding: 20px;
-          background: var(--color-white);
+          color: var(--color-white);
+          border: 1px solid var(--color-secondary);
           border-radius: 20px;
+
+          background-image: url("../../images/fe_card_bg.png");
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: 100% 100%;
 
           .feature-image {
             width: 36px;
@@ -88,15 +99,15 @@
           }
 
           .feature-title {
-            @include typography("display-sm", "semibold");
+            @include typography("display-sm", "bold");
             font-family: var(--secondary-font);
-            color: var(--color-text-dark);
+            // color: var(--color-text-dark);
             height: auto !important;
           }
 
           .feature-description {
             @include typography("text-lg", "regular");
-            color: var(--color-text-light);
+            // color: var(--color-text-light);
           }
         }
       }

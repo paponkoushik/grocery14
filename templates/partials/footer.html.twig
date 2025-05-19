@@ -26,6 +26,8 @@
                         </p>
                     </div>
 
+                    {% include 'widgets/footer-card.html.twig' %}
+
                     {% include 'widgets/footer-copyright.html.twig' %}
 
                 </div>
@@ -40,28 +42,15 @@
                         {% include 'widgets/footer-card.html.twig' %}
                     
                     </div>
-                   
 
-                    {#  {% include 'widgets/footer-card.html.twig' %}#}
                 </div>
             </div>
         </div>
 
         <div class="footer-copywrite">
             <div class="container">
-                {# {% include 'widgets/footer-copyright.html.twig' %} #}
+                {% include 'widgets/footer-copyright.html.twig' %}
 
-{#                <div class="footer-menu">#}
-{#                    {% for link in privacyLinks %}#}
-{#                        {% set link_page = pages.find(link) %}#}
-{#                        {% if link_page %}#}
-{#                            <div class="menu-item">#}
-{#                                <a rel="noopener noreferrer" class="{{ footer_text_color }}"#}
-{#                                   href="{{ link_page.url|replace({'%20': ' ','%23': '#', '%3A': ':', '%2F': '/'}) }}">{{ link_page.menu }}</a>#}
-{#                            </div>#}
-{#                        {% endif %}#}
-{#                    {% endfor %}#}
-{#                </div>#}
             </div>
         </div>
     </div>

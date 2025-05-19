@@ -50,14 +50,4 @@ form:
                   type: text
                   label: Sub Title
                   classess: 'translatable'
-                header.no_hero_content.button_text.translatable:
-                  type: text
-                  label: Button text
-                  classess: 'translatable'
-                header.no_hero_content.button_url:
-                  type: text
-                  label: Button Url
-                header.no_hero_content.image:
-                  type: pagemediaselect
-                  label: Hero image
-                  preview_images: true
+ 

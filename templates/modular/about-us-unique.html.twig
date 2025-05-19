@@ -1,61 +1,70 @@
 {% extends 'partials/variables.html.twig' %}
 
-{% set module = page.header.contents %}
-{% set content = page.header.about_us_content %}
+{% set module = page.header.module %}
 
 {% block render_block %}
-    <div class="about_us_unique_wrapper slide-up">
+    <div class="about_us_unique">
         <div class="container">
-            <div class="about_us_unique_parent">
-                <div class="about_us_unique_content">
-                    {% set content_length = content|length %}
-                    {% for key, item in content %}
-                        {% set image = page.media[item.image] %}
-                        {% set icon = page.media[item.icon] %}
+			<div class="about_us_unique_header">
+				{% if module.title %}
+					<h3 class="block-title">{{ module.title.translatable|striptags('<span>')|raw }}</h3>
+				{% endif %}
 
-                        {# Check if it's the first `count_content` (first 2 items) #}
-                        {% if key == 0 or key == 1 %}
-                            {% if key == 0 %}
-                                <div class="count_content first-child">  <!-- Start first count_content -->
-                            {% endif %}
-                            <div class="count_row">
-                                <div class="image">
-                                    <img src="{{ image.url }}" alt="" class="img-desktop">
-                                    <img src="{{ icon.url }}" alt="" class="img-mobile">
-                                </div>
-                                <div class="count">
-                                    <h4 class="count_title">{{ item.title.translatable|raw }}</h4>
-                                    <p class="count_details">
-                                        {{ item.brief.translatable|raw }}
-                                    </p>
-                                </div>
-                            </div>
+                <div class="description">
+                    {% if page.content %}
+                        <div class="about_us_unique_description">
+                            {{ page.content|raw }}
+                        </div>
+                    {% endif %}
 
-                            {% if key == 1 %}
-                                </div>  <!-- End first count_content -->
-                            {% endif %}
-                        {% endif %}
-
-                        {# Check if it's the second `count_content` (third item) #}
-                        {% if key == 2 %}
-                            <div class="count_content last-child"> <!-- Start second count_content -->
-                                <div class="count_row">
-                                    <div class="image">
-                                        <img src="{{ image.url }}" alt="" class="img-desktop">
-                                        <img src="{{ icon.url }}" alt="" class="img-mobile">
-                                    </div>
-                                    <div class="count">
-                                        <h4 class="count_title">{{ item.title.translatable|raw }}</h4>
-                                        <p class="count_details">
-                                            {{ item.brief.translatable|raw }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div> <!-- End second count_content -->
-                        {% endif %}
-                    {% endfor %}
+                    <div class="about_us_unique_buttons">
+						{% for button in module.buttons  %}
+					
+						<a class="button " href="{{ home_url|e }}{{ button.link }}">
+							<span>{{ button.text.translatable }}</span>
+				
+						</a>
+						{% endfor %}
+					</div>
                 </div>
-            </div>
+
+				
+			</div>
+        </div>
+
+        <div class="about_us_unique_container container">
+
+            {% for about_us_unique in page.header.about_us_unique %}
+
+                <div class="about_us_unique_card">
+                    {% set img_out = page.media[about_us_unique.image_outside] %}
+                    {% if img_out != '' %}
+                        <div class="img_out">
+                            <img class="" src="{{ img_out.url }}"/>
+                        </div>
+                    {% endif %}
+
+                    {% set bg = page.media[about_us_unique.image_inside].url ?? '' %}
+
+                    <div class="about_us_unique_contents" style="{% if(bg) %}background-image: url('{{ bg }}'){% endif %}">
+        
+       
+                        {% set icon = page.media[about_us_unique.icon] %}
+        
+                        <img class="icon" src="{{ icon.url }}"/>
+
+                        <p class="desc">{{ about_us_unique.description.translatable }}</p>
+
+                        {% if about_us_unique.title %}
+                            <h4 class="head">{{ about_us_unique.title.translatable }}</h4>
+                        {% endif %}
+            
+   
+                    </div>
+                </div>
+            {% endfor %}
+
+
         </div>
     </div>
 {% endblock %}
