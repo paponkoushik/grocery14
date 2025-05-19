@@ -3,17 +3,18 @@
   padding: 100px 0;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
+  gap: 40px;
   align-self: stretch;
-  background-color: var(--feature-bg-container);
+  background-color: var(--bg-body);
   position: relative;
 
   @include desktop-small {
     padding: 40px 0;
-    gap: 40px;
+    gap: 60px;
   }
 
   .container {
+    max-width: 1248px;
     @include padding(padding-lg);
 
     @include desktop-small {
@@ -32,81 +33,72 @@
     @include desktop-small {
       flex-direction: column;
       width: 100%;
-      gap: 18px;
+      gap: 24px;
+      align-items: center;
     }
 
     .block-title {
-      @include typography(display-md, medium);
-      // opacity: 0;
+      max-width: 417px;
+      @include typography(display-md, bold);
       font-family: var(--secondary-font);
-      color: var(--color-text-dark);
+      color: var(--color-text);
 
       @include desktop-small {
-        @include typography(display-sm, semibold);
-      }
-
-      span{
-        font-family: var(--secondary-font);
-        color: var(--color-primary);
-        @include typography(display-lg, bold);
-
-        @include desktop-small {
-          @include typography(display-md, bold);
-        }
+        text-align: center;
       }
     }
 
     .description{
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      // display: flex;
+      // flex-direction: column;
+      // align-items: flex-start;
       gap: 22px;
       max-width: 562px;
       width: 100%;
 
       .about_us_unique_description {
-        // opacity: 0;
         p {
-          color: var(--color-text-light);
-          @include typography(text-md, regular);
+          max-width: 592px;
+          color: var(--color-text);
+          @include typography(text-lg, regular);
 
           @include desktop-small{
-            @include typography(text-md, regular);
+            text-align: center;
           }
         }
       }
 
-      .about_us_unique_buttons {
-        display: flex;
-        gap: 14px;
-        justify-content: flex-start;
+      // .about_us_unique_buttons {
+      //   display: flex;
+      //   gap: 14px;
+      //   justify-content: flex-start;
 
-        @include desktop-small {
-          gap: 14px;
-          flex-direction: column;
-          width: 100%;
-        }
+      //   @include desktop-small {
+      //     gap: 14px;
+      //     flex-direction: column;
+      //     width: 100%;
+      //   }
 
-        .button{
+      //   .button{
           
-          align-self: flex-start;
-          display: flex;
+      //     align-self: flex-start;
+      //     display: flex;
 
 
   
-          // svg {
-          //   path {
-          //     stroke: var(--color-white);
-          //   }
-          // }
+      //     // svg {
+      //     //   path {
+      //     //     stroke: var(--color-white);
+      //     //   }
+      //     // }
   
-          &:nth-child(2){
-            background: var(--color-secondary);
-            border: 1px solid var(--color-white);
-          }
-        }
+      //     &:nth-child(2){
+      //       background: var(--color-secondary);
+      //       border: 1px solid var(--color-white);
+      //     }
+      //   }
 
-      }
+      // }
 
 
     }
@@ -115,153 +107,117 @@
   }
 
   .about_us_unique_container {
-    position: relative;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    gap: 1.25rem;
-    background: var(--feature-bg-container);
-    overflow: hidden;
+    align-items: stretch;
+    gap: 1.125rem;
     width: 100%;
+    img {
+      border-radius: 24px;
+    }
 
     @include desktop-small {
       flex-direction: column;
+      align-items: center;
     }
 
-
-
-    .about_us_unique_card {
+    .left {
       display: flex;
-      align-items: stretch;
-      flex: 0 0 calc(50% - 0.625rem);
-      max-width: calc(50% - 0.625rem);
-      box-sizing: border-box;
-      gap: 1.25rem;
-      cursor: pointer;
-      align-self: stretch;
-      transition: transform 0.3s ease;
-      align-self: stretch;
+      flex-direction: column;
+      gap: 18px;
+      max-width: 708px;
+      width: 100%;
 
       @include desktop-small {
-        width: 100%;
-        flex-direction: column;
-        // flex: 0 0 calc(100% - 0.625rem);
-        max-width: unset;
-        
+        max-width: 100%;
+        gap: 20px;
       }
 
-      @include tablet{
-        flex-direction: column;
-        max-height: unset;
-      }
-
-      // @include tablet{
-      //   .img_out{
-      //     width: 100%;
-      //   img{
-      //     width: 100%;
-      //   }
-      // }
-      .img_out {
-        flex: 1; 
-        display: flex;
-        align-items: stretch;
-        justify-content: center;
-    
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: fill;
-          border-radius: 20px;
-        }
-      }
-
-      
-
-      .about_us_unique_contents{
-        flex: 1;
+      .content {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        align-self: stretch;
-        position: relative;
         justify-content: space-between;
-        padding: 20px;
-        border-radius: 20px;
+        padding: 30px 20px;
+        border-radius: 24px;
+        max-width: 224px;
         width: 100%;
-        gap: 6px;
-        background: var(--color-primary);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        max-width: 305px;
-
-        flex: 40%;
-        
-
-        @include tablet {
-          align-items: flex-start;
-          width: 100%;
-          height: 224px;
+        color: var(--color-text);
+        @include desktop-small {
+          padding: 30px;
+          gap: 100px;
+          max-width: 343px;
         }
 
-        .icon{
-          width: 100px;
-          height: auto
+        p {
+          @include typography (text-xl, regular);
         }
-        .head {
-          @include typography(display-lg, semibold);
-          color: var(--color-white);
-          font-family: var(--secondary-font);
-          
+        h1 {
+          font-size: 40px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 48px;
         }
-  
-
-        .desc {
-          font-family: var(--secondary-font);
-          @include typography(display-xs, bold);
-          color: var(--color-text-light);
-          text-transform: uppercase;
-
-        }
-
-
       }
 
-      &:nth-child(1) {
-        .about_us_unique_contents{
-          flex-direction: column-reverse;
+      .top {
+        display: flex;
+        gap: 18px;
 
-          .head{
-            display: none;
+        @include desktop-small {
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+        }
+        .content {
+          background-color: var(--color-primary);
+        }
+        .top_image {
+          max-width: 466px;
+          display: flex;
+          img {
+            width: 100%;
+            min-height: 231px;
+            height: 100%;
+            // @include desktop-small {
+            //   min-height: 231px;
+            // }
           }
         }
-     
+
+
+
       }
-
-
-      &:nth-child(1),&:nth-child(2) {
-        flex-direction: row;
-
-        @include tablet {
+      .bottom {
+        display: flex;
+        gap: 18px;
+        @include desktop-small {
           flex-direction: column;
+          align-items: center;
+          gap: 20px;
         }
+        .content { 
+          background-color: var(--color-secondary);
+        }
+        .bottom_image {
+          max-width: 224px;
+          display: flex;
+          @include desktop-small {
+            max-width: 343px;
+            width: 100%;
+          }
+          img {
+            width: 100%;
+          }
+        }
+
       }
+    }
 
-      &:nth-child(3),&:nth-child(4){
-        flex-direction: row-reverse;
-        @include tablet{
-          flex-direction: column-reverse;
-        }
-
-          
-      }
-
-      &:nth-child(2), &:nth-child(3){
-        .about_us_unique_contents .desc{
-          color: var(--color-white);
-        }
+    .right {
+      max-width: 490px;
+      display: flex;
+      img {
+        width: 100%;
       }
     }
 

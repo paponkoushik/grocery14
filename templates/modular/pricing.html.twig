@@ -65,7 +65,7 @@
     } %}
 
 
-		<div class="pricings" id="modular_pricing"> <div class="container">
+		<div class="pricings" > <div class="container">
 			<div class="pricing-header">
 				{# {% include 'widgets/badge.html.twig' %} #}
 				<h3 class="block-title">{{ page.title|striptags('<span>')|raw  }}</h3>
@@ -73,7 +73,7 @@
 			</div>
 		</div>
 
-		<div class="container pricings-container">
+		<div class="container pricings-container" id="modular_pricing">
 			{% if config.data.source == 'WSM' %}
 				{% include 'partials/product_pricing/pricing_wsm.html.twig' with {products: product_pricing.data } %}
 			{% else %}

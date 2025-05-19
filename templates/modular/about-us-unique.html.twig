@@ -1,6 +1,7 @@
 {% extends 'partials/variables.html.twig' %}
 
 {% set module = page.header.module %}
+{% set right_image = page.media[module.right_image] %}
 
 {% block render_block %}
     <div class="about_us_unique">
@@ -34,37 +35,34 @@
 
         <div class="about_us_unique_container container">
 
-            {% for about_us_unique in page.header.about_us_unique %}
-
-                <div class="about_us_unique_card">
-                    {% set img_out = page.media[about_us_unique.image_outside] %}
-                    {% if img_out != '' %}
-                        <div class="img_out">
-                            <img class="" src="{{ img_out.url }}"/>
-                        </div>
-                    {% endif %}
-
-                    {% set bg = page.media[about_us_unique.image_inside].url ?? '' %}
-
-                    <div class="about_us_unique_contents" style="{% if(bg) %}background-image: url('{{ bg }}'){% endif %}">
-        
-       
-                        {% set icon = page.media[about_us_unique.icon] %}
-        
-                        <img class="icon" src="{{ icon.url }}"/>
-
-                        <p class="desc">{{ about_us_unique.description.translatable }}</p>
-
-                        {% if about_us_unique.title %}
-                            <h4 class="head">{{ about_us_unique.title.translatable }}</h4>
-                        {% endif %}
-            
-   
+            <div class="left">
+                <div class="top">
+                    <div class="top_image">
+                        <img class="" src="{{ page.media[module.left_top_image].url }}"/>
+                    </div>
+                    
+                    <div class="content">
+                        <p>{{ module.left_top_text.translatable | raw }}</p>
+                        <h1>{{ module.left_top_count.translatable | raw }}</h1>
                     </div>
                 </div>
-            {% endfor %}
-
-
+                <div class="bottom">
+                    <div class="content">
+                        <p>{{ module.left_bottom_text.translatable | raw }}</p>
+                        <h1>{{ module.left_bottom_count.translatable | raw }}</h1>
+                    </div>
+                    <div class="bottom_image">
+                        <img class="" src="{{ page.media[module.left_bottom_left_image].url }}"/>
+                    </div>
+                    <div class="bottom_image">
+                        <img class="" src="{{ page.media[module.left_bottom_right_image].url }}"/>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <img class="" src="{{ page.media[module.right_image].url }}"/>
+            </div>
+            
         </div>
     </div>
 {% endblock %}

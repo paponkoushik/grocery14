@@ -18,6 +18,38 @@ form:
                   type: text
                   label: Title
                   classes: 'translatable'
+                header.module.left_top_text.translatable:
+                  type: text
+                  label: Left Top Text
+                  classes: 'translatable'
+                header.module.left_top_count.translatable:
+                  type: text
+                  label: Left Top Count
+                  classes: 'translatable'
+                header.module.left_bottom_text.translatable:
+                  type: text
+                  label: Left Bottom Text
+                  classes: 'translatable'
+                header.module.left_bottom_count.translatable:
+                  type: text
+                  label: Left Bottom Count
+                  classes: 'translatable'
+                header.module.right_image:
+                  type: pagemediaselect
+                  label: Right Image
+                  preview_images: true
+                header.module.left_top_image:
+                  type: pagemediaselect
+                  label: Left Top Image
+                  preview_images: true
+                header.module.left_bottom_left_image:
+                  type: pagemediaselect
+                  label: bottom left Image
+                  preview_images: true
+                header.module.left_bottom_right_image:
+                  type: pagemediaselect
+                  label: bottom right Image
+                  preview_images: true
 
                 header.module.buttons:
                   type: list
@@ -31,37 +63,6 @@ form:
                     .link:
                       type: text
                       label: Button Link
-               
-                  
-
-
-            header.about_us_unique_section:
-              ordering@: 4
-              type: section
-              title: About Us Unique
-              underline: false
-              label: false
-              fields:
-                header.about_us_unique:
-                  type: list
-                  fields:
-                    .title.translatable:
-                      type: text
-                      label: Title
-                      classes: 'translatable'
-                    .description.translatable:
-                      type: textarea
-                      label: Description
-                      classes: 'translatable'
-                    .icon:
-                      type: pagemediaselect
-                      label: icon
-                    .image_inside:
-                      type: pagemediaselect
-                      label: Image Inside
-                    .image_outside:
-                      type: pagemediaselect
-                      label: Image Outside
             header.media_order:
                 ordering@: 99
 
