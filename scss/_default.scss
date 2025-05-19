@@ -21,6 +21,7 @@ body {
   overflow: hidden;
   @include typography(base);
   position: relative;
+  background: var(--bg-body);
   // padding-top: $header-gap;
 }
 
@@ -63,7 +64,7 @@ h6 span {
 .button {
   display: flex;
   align-items: center;
-  padding: 10px 22px;
+  padding: 12px 24px;
   justify-content: center;
   gap: 10px;
   appearance: none;
@@ -72,12 +73,8 @@ h6 span {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  /* Add a smooth transition effect */
-  border-radius: 32px;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 24px;
+  border-radius: 12px;
+  @include typography(text-lg, semibold);
   text-transform: capitalize;
 }
 

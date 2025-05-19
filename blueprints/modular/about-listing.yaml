@@ -1,4 +1,4 @@
-title: About listing - Advivus
+title: About listing
 extends@: default
 
 form:
@@ -6,21 +6,31 @@ form:
     tabs:
       fields:
         content:
+          
 
           fields:
             header.contents.title.translatable:
               type: text
-              label: Title
+              label: About Listing Title
               classess: 'translatable'
             header.contents.subtitle.translatable:
               type: text
-              label: Subtitle
+              label: About Listing Subtitle
               classess: 'translatable'
-            
+
             header.contents.parent_classes:
               label: Parent Classes
               help: You can use multiple predefine or custom class. Each class sepearate by space. Example - bg-primary, bg-secondary
               type: text
+
+            header.contents.list_title.translatable:
+              type: text
+              label: List Title
+              classess: 'translatable'
+
+            header.contents.list_title_icon:
+              type: pagemediaselect
+              label: List Title Icon
               
             header.about_sections_section:
               # ordering@: 4
@@ -44,9 +54,39 @@ form:
                       label: Description
                       classes: 'translatable'
 
-            header.contents.image:
+            header.contents.image_left:
               type: pagemediaselect
-              label: Image
+              label: Image Left
+
+            header.contents.image_right:
+              type: pagemediaselect
+              label: Image Right
+
+            header.contents.image_large:
+              type: pagemediaselect
+              label: Image Large
+
+            header.contents.img_title.translatable:
+              type: text
+              label: Large Image Title
+              classess: 'translatable'
+            header.contents.img_description.translatable:
+              type: textarea
+              label: Large Image Description
+              classess: 'translatable'
+
+            header.contents.buttons:
+              type: list
+              label: About Listing Buttons
+              style: vertical
+              fields:
+                .text.translatable:
+                  type: text
+                  label: Button Text
+                  classes: 'translatable'
+                .link:
+                  type: text
+                  label: Button Link
 
             header.media_order:
                 ordering@: 99
