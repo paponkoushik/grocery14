@@ -1,78 +1,252 @@
 .about-listing-wrapper {
-  padding-top: 100px;
-  padding-bottom: 100px;
-  background: var(--about-listing-bg-container);
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background-image: url("../../images/list_bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+
+  @include desktop-small {
+    padding: 60px 0;
+  }
 
   .contents-wrapper {
     display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    @include padding(padding-lg);
+    flex-direction: row-reverse;
+    align-items: start;
+    gap: 103px;
 
     @include desktop-small {
-      @include padding(padding-sm);
-    }
-
-    .header-content {
+      flex-direction: column-reverse;
+      gap: 60px;
+      align-items: center;
       text-align: center;
-
-      h4 {
-        color: var(--color-section-subtitle);
-        @include typography(text-xl)
-      }
-
-      h4::before {
-        content: " ";
-        position: absolute;
-        height: 3px;
-        width: 20px;
-        left: -25px;
-        top: 50%;
-        background: var(--color-primary);
-      }
     }
+
 
     .listing-contents {
       display: flex;
-      align-items: center;
-      flex-direction: row;
-      gap: 80px;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 24px;
+      flex: 1;
+
       @include desktop-small {
+        gap: 40px;
+      }
+
+      .header-content {
+        text-align: left;
+        display: flex;
         flex-direction: column;
+        gap: 24px;
+
+        @include desktop-small {
+          text-align: center;
+        }
+
+        h3 {
+          font-family: var(--secondary-font);
+          color: var(--color-white);
+          @include typography(display-md, bold);
+
+          // @include desktop-small {
+          //   @include typography(display-md, bold);
+          // }
+        }
+
+        h4 {
+          color: var(--color-white);
+          @include typography(text-xl, regular);
+
+          // @include desktop-small {
+          //   @include typography(text-md, regular);
+          // }
+        }
 
       }
+
+      .listing_header {
+        display: flex;
+        gap: 20px;
+
+        h5 {
+          color: var(--color-black);
+          @include typography(text-lg, bold);
+        }
+
+        .icon {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
 
       .listing-content-container {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
-        flex: 1;
+        gap: 24px;
+
         .listing {
           display: flex;
-          gap: 1.125rem;
 
           &.listing-horizontal {
             flex-direction: row;
+            align-items: center;
+            gap: 12px;
+
+            @include desktop-small{
+              flex-direction: column;
+            }
           }
 
-          .listing-title{
-            color: var(--about-listing-title);
-            @include typography(display-xs, bold);
+          .listing-icon {
+
+            img {
+              // margin-right: 8px;
+              width: 20px;
+              height: 20px;
+              margin-top: 4px;
+            }
           }
-          p{
-            color: var(--about-listing-text);
-            @include typography(text-xl, regular);
+
+          .listing-content {
+
+            p {
+              color: var(--color-white);
+              @include typography(text-md, regular);
+
+              // @include desktop-small {
+              //   @include typography(text-md, regular);
+              // }
+            }
           }
+
         }
       }
-      .image-container{
-        width: 100%;
-        flex: 1;
-        img{
-          width: 100%;
+
+      .listing_btn {
+        display: flex;
+        align-items: start;
+        gap: 16px;
+        color: var(--color-white);
+        text-decoration: none;
+
+        .btn_text {
+          display: flex;
+          flex-direction: column;
+          gap: 7px;
+
+
+          p {
+
+            @include typography(text-sm, regular);
+
+            @include tablet {
+              @include typography(text-sm, bold);
+            }
+
+          }
+
+          h5 {
+
+            @include typography(text-lg, extra_bold);
+
+            @include tablet {
+              @include typography(text-md, extra_bold);
+            }
+
+          }
         }
+
+
+
+
       }
+
 
     }
+
+    .image-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      // gap: 16px;
+      flex: 1;
+
+      .single_img {
+        width: 100%;
+        position: relative;
+
+        img {
+          width: 100%;
+          border-radius: 24px;
+
+          @include mobile {
+            // object-fit: none;
+            // height: 324px;
+          }
+        }
+
+        .single_img_content {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          position: absolute;
+          bottom: 0;
+          padding: 20px;
+
+          @include desktop-small {
+            gap: 14px;
+          }
+
+          h4 {
+            color: var(--color-white);
+            @include typography(text-xl, extra_bold);
+
+            @include desktop-small {
+              text-transform: uppercase;
+            }
+          }
+
+          p {
+            color: var(--color-white);
+            @include typography(text-lg, regular);
+
+            @include desktop-small {
+              @include typography(text-md, regular);
+            }
+          }
+        }
+      }
+
+      .double_img {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+
+        @include desktop-small {
+          flex-direction: column;
+        }
+
+        .image_left {
+          width: 48%;
+
+          @include desktop-small {
+            width: 100%;
+          }
+        }
+
+        .image_right {
+          width: 48%;
+
+          @include desktop-small {
+            width: 100%;
+          }
+        }
+      }
+    }
+
   }
 }

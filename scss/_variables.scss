@@ -1,4 +1,6 @@
-$header-gap: 80px;
+$header-gap: 140px;
+$header-gap-mobile: 80px;
+
 
 $content-margin: 80px;
 $content-margin-sm: 64px;
@@ -14,65 +16,127 @@ $content-padding-sm: 64px;
 // Define typography variables
 $typography: (
         base: (
-                font-size: 1rem,
-                line-height: 1.5rem,
+                font-size: 16px,
+                line-height: 24px,
                 letter-spacing: normal,
         ),
         display-xxl: (
-                font-size: 4.5rem,
-                line-height: 5.625rem,
+                font-size: 72px,
+                line-height: 90px,
                 letter-spacing: -0.02em,
         ),
         display-xl: (
-                font-size: 3.75rem,
-                line-height: 4.5rem,
+                font-size: 60px,
+                line-height: 72px,
                 letter-spacing: -0.02em,
         ),
         display-lg: (
-                font-size: 3rem,
-                line-height: 3.75rem,
+                font-size: 48px,
+                line-height: 60px,
                 letter-spacing: -0.02em,
         ),
         display-md: (
-                font-size: 2.25rem,
-                line-height: 2.75rem,
+                font-size: 36px,
+                line-height: 44px,
                 letter-spacing: -0.02em,
         ),
         display-sm: (
-                font-size: 1.875rem,
-                line-height: 2.375rem,
+                font-size: 30px,
+                line-height: 38px,
                 letter-spacing: normal,
         ),
         display-xs: (
-                font-size: 1.5rem,
-                line-height: 2rem,
+                font-size: 24px,
+                line-height: 32px,
                 letter-spacing: normal,
         ),
         text-xl: (
-                font-size: 1.25rem,
-                line-height: 1.875rem,
+                font-size: 20px,
+                line-height: 30px,
                 letter-spacing: normal,
         ),
         text-lg: (
-                font-size: 1.125rem,
-                line-height: 1.75rem,
+                font-size: 18px,
+                line-height: 28px,
                 letter-spacing: normal,
         ),
         text-md: (
-                font-size: 1rem,
-                line-height: 1.5rem,
+                font-size: 16px,
+                line-height: 24px,
                 letter-spacing: normal,
         ),
         text-sm: (
-                font-size: 0.875rem,
-                line-height: 1.25rem,
+                font-size: 14px,
+                line-height: 20px,
                 letter-spacing: normal,
         ),
         text-xs: (
-                font-size: 0.75rem,
-                line-height: 1.125rem,
+                font-size: 12px,
+                line-height: 18px,
                 letter-spacing: normal,
         ),
+
+
+        // base: (
+        //         font-size: 1rem,
+        //         line-height: 1.5rem,
+        //         letter-spacing: normal,
+        // ),
+        // display-xxl: (
+        //         font-size: 4.5rem,
+        //         line-height: 5.625rem,
+        //         letter-spacing: -0.02em,
+        // ),
+        // display-xl: (
+        //         font-size: 3.75rem,
+        //         line-height: 4.5rem,
+        //         letter-spacing: -0.02em,
+        // ),
+        // display-lg: (
+        //         font-size: 3rem,
+        //         line-height: 3.75rem,
+        //         letter-spacing: -0.02em,
+        // ),
+        // display-md: (
+        //         font-size: 2.25rem,
+        //         line-height: 2.75rem,
+        //         letter-spacing: -0.02em,
+        // ),
+        // display-sm: (
+        //         font-size: 1.875rem,
+        //         line-height: 2.375rem,
+        //         letter-spacing: normal,
+        // ),
+        // display-xs: (
+        //         font-size: 1.5rem,
+        //         line-height: 2rem,
+        //         letter-spacing: normal,
+        // ),
+        // text-xl: (
+        //         font-size: 1.25rem,
+        //         line-height: 1.875rem,
+        //         letter-spacing: normal,
+        // ),
+        // text-lg: (
+        //         font-size: 1.125rem,
+        //         line-height: 1.75rem,
+        //         letter-spacing: normal,
+        // ),
+        // text-md: (
+        //         font-size: 1rem,
+        //         line-height: 1.5rem,
+        //         letter-spacing: normal,
+        // ),
+        // text-sm: (
+        //         font-size: 0.875rem,
+        //         line-height: 1.25rem,
+        //         letter-spacing: normal,
+        // ),
+        // text-xs: (
+        //         font-size: 0.75rem,
+        //         line-height: 1.125rem,
+        //         letter-spacing: normal,
+        // ),
 );
 
 $padding: (

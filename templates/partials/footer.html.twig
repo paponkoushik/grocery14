@@ -21,26 +21,36 @@
                     <div class="footer-logo">
                         {% include 'widgets/logo.html.twig' with { position: 'footer' } %}
                         <p class="branding-text service-description truncated-text">
-                            {{ footer_desc }}
+                            {# {{ footer_desc }} #}
+                            {{ page.find('/home').header.footer.branding_text.translatable }}
                         </p>
                     </div>
 
-                    {% include 'widgets/footer-card.html.twig' %}
+                    {% include 'widgets/footer-copyright.html.twig' %}
+
                 </div>
 
                 <div class="footer-menu-area">
                     {% include 'widgets/footer-link.html.twig' %}
-{#                    {% include 'widgets/footer-privacy-link.html.twig' %}#}
-                    {% include 'widgets/footer-contact.html.twig' %}
+                        {# {% include 'widgets/footer-privacy-link.html.twig' %}#}
+                    <div class="footer_contact"> 
 
-{#                    {% include 'widgets/footer-card.html.twig' %}#}
+                        {% include 'widgets/footer-contact.html.twig' %}
+
+                        {% include 'widgets/footer-card.html.twig' %}
+                    
+                    </div>
+                   
+
+                    {#  {% include 'widgets/footer-card.html.twig' %}#}
                 </div>
             </div>
         </div>
 
         <div class="footer-copywrite">
             <div class="container">
-                {% include 'widgets/footer-copyright.html.twig' %}
+                {# {% include 'widgets/footer-copyright.html.twig' %} #}
+
 {#                <div class="footer-menu">#}
 {#                    {% for link in privacyLinks %}#}
 {#                        {% set link_page = pages.find(link) %}#}
