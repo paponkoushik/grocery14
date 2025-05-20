@@ -9,7 +9,7 @@
   background: rgba(0, 0, 0, 0.80);
   transition: background-color 0.3s, color 0.3s;
 
-  @include desktop-small{
+  @media (max-width: 1155px){
     padding: 20px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.36);
 
@@ -43,7 +43,7 @@
     gap: 63px;
     
     @media (max-width: 1200px) {
-      gap: 0;
+      gap: 1rem;
     }
 
     .header-logo {
@@ -89,7 +89,7 @@
       background: rgba(255, 255, 255, 0.17);
       border: 1px solid rgba(255, 255, 255, 0.36);
 
-      @include desktop-small {
+      @media (max-width: 1155px) {
         display: none;
       }
 
@@ -139,7 +139,7 @@
 
         @include typography(text-lg, medium);
 
-        @include desktop-small {
+        @media (max-width: 1155px) {
           display: none;
         }
 
@@ -165,7 +165,7 @@
         display: flex;
         align-items: center;
 
-        @include desktop-small {
+        @media (max-width: 1155px){
           display: none;
         }
 
@@ -179,7 +179,7 @@
         display: flex;
         gap: 0;
 
-        @include desktop-small{
+        @media (max-width: 1155px){
           gap: 16px;
         }
 
@@ -211,6 +211,7 @@
           //border-radius: 8px;
           //background: var(--color-primary);
           padding: 8px;
+          order: 2;
 
           span {
             background-image: url(../../images/close.svg);

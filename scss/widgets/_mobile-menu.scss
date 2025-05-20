@@ -2,12 +2,13 @@
   display: none;
 }
 
-@include desktop-small {
+@media (max-width: 1155px) {
   #mobile-menu-icon {
     display: block;
     //border-radius: 8px;
     //background: var(--color-primary);
     padding: 8px;
+    order: 2;
 
     span {
       display: block;
