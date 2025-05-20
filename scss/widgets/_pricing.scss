@@ -287,7 +287,7 @@
           .trial-days,
           .trial {
             @include typography(text-xl, bold);
-
+            height: unset !important;
             text-transform: uppercase;
           }
         }
