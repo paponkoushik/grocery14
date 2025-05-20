@@ -51,13 +51,13 @@
   color: var(--color-text) !important;
 
   .terms-section, th {
-    background: var(--color-white) !important;
-    color: var(--color-black) !important;
+    background: var(--bg-body) !important;
+    color: var(--color-white) !important;
   }
 
   .main-container {
     h1, h2, h3, h4, h5, p, li, a, td, th {
-      color: var(--color-black) !important;
+      color: var(--color-white) !important;
     }
 
     h1 {
@@ -65,9 +65,11 @@
     }
 
     tbody {
+      background-color: var(--bg-body) !important;
+      color: var(--color-white) !important;
       tr {
         td {
-          background: var(--color-white) !important;
+          background: var(--bg-body) !important;
         }
       }
     }
