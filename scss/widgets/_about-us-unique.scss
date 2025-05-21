@@ -195,18 +195,26 @@
           align-items: center;
           gap: 20px;
         }
+
         .content { 
           background-color: var(--color-secondary);
         }
+
         .bottom_image {
           max-width: 224px;
           display: flex;
+
           @include desktop-small {
             max-width: 343px;
             width: 100%;
           }
+
           img {
             width: 100%;
+
+            @include mobile{
+              height: 191px;
+            }
           }
         }
 
@@ -216,8 +224,17 @@
     .right {
       max-width: 490px;
       display: flex;
+
+      @include tablet{
+        width: 100%;
+      }
+
       img {
         width: 100%;
+
+        @include tablet{
+          height: 231px;
+        }
       }
     }
 
