@@ -19,7 +19,8 @@
 
   @include desktop-small {
     background-image: unset;
-    padding: 60px 0;
+    padding: 80px 0;
+    gap: 80px;
   }
 
   .pricing-header {
@@ -279,6 +280,7 @@
         }
 
         .billed-section {
+          display: ruby !important;
           padding-bottom: 54px;
           color: var(--color-white) !important;
           @include typography(text-xl, bold);

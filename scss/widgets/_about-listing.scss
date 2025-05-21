@@ -14,8 +14,8 @@
   .contents-wrapper {
     display: flex;
     flex-direction: row-reverse;
-    align-items: start;
-    gap: 103px;
+    align-items: center;
+    gap: 72px;
 
     @include desktop-small {
       flex-direction: column-reverse;
@@ -30,7 +30,7 @@
       align-items: flex-start;
       flex-direction: column;
       gap: 24px;
-      flex: 1;
+      flex: 1.2;
 
       @include desktop-small {
         gap: 40px;
